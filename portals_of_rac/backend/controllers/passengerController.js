@@ -157,6 +157,17 @@ class PassengerController {
         if (location) {
           location.berth.removePassenger(pnr);
           location.berth.updateStatus();
+
+          // Auto-trigger reallocation/upgrade matching for the freed berth
+          try {
+            console.log(`\n⚡ Auto-triggering reallocation after No-Show for ${pnr}...`);
+            const CurrentStationService = require('../services/CurrentStationReallocationService');
+            CurrentStationService.createPendingReallocationsFromMatches(trainState).catch(err => {
+              console.error('Error auto-processing RAC upgrades on no-show:', err);
+            });
+          } catch (err) {
+            console.error('Failed to trigger reallocation:', err);
+          }
         }
 
         trainState.stats.totalNoShows++;
@@ -1425,6 +1436,21 @@ class PassengerController {
         if (memPassenger) {
           memPassenger.from = newStation.code;
           memPassenger.fromIdx = newStationIdx;
+
+          // The berth is now vacant for the initial segment. Let's trigger reallocation
+          try {
+            console.log(`\n⚡ Auto-triggering reallocation after boarding station change for ${pnr}...`);
+            const location = trainState.findPassenger(pnr);
+            if (location) {
+              location.berth.updateStatus();
+            }
+            const CurrentStationService = require('../services/CurrentStationReallocationService');
+            CurrentStationService.createPendingReallocationsFromMatches(trainState).catch(err => {
+              console.error('Error auto-processing RAC upgrades:', err);
+            });
+          } catch (err) {
+            console.error('Failed to trigger reallocation:', err);
+          }
         }
       }
 
@@ -1523,6 +1549,17 @@ class PassengerController {
           if (location) {
             location.berth.removePassenger(pnr);
             location.berth.updateStatus();
+
+            // Auto-trigger reallocation/upgrade matching for the freed berth
+            try {
+              console.log(`\n⚡ Auto-triggering reallocation after self-cancel for ${pnr}...`);
+              const CurrentStationService = require('../services/CurrentStationReallocationService');
+              CurrentStationService.createPendingReallocationsFromMatches(trainState).catch(err => {
+                console.error('Error auto-processing RAC upgrades on cancel:', err);
+              });
+            } catch (err) {
+              console.error('Failed to trigger reallocation:', err);
+            }
           }
         }
       }

@@ -254,7 +254,7 @@ const LandingPage: React.FC<{ onLogout?: () => void }> = ({ onLogout }) => {
                 </div>
                 <hr />
                 <button onClick={handleLogout} className="menu-item logout">
-                   Logout
+                  Logout
                 </button>
               </div>
             )}
@@ -313,7 +313,7 @@ const LandingPage: React.FC<{ onLogout?: () => void }> = ({ onLogout }) => {
                   className="train-search-clear-btn"
                   onClick={() => setSearchQuery("")}
                 >
-                   Clear
+                  Clear
                 </button>
               )}
             </div>
@@ -375,7 +375,7 @@ const LandingPage: React.FC<{ onLogout?: () => void }> = ({ onLogout }) => {
                         {train.totalCoaches ? (
                           <>
                             <span className="coach-total">
-                               {train.totalCoaches} coaches
+                              {train.totalCoaches} coaches
                             </span>
                             <div className="coach-breakdown">
                               {getCoachBreakdown(train)}
@@ -433,7 +433,7 @@ const LandingPage: React.FC<{ onLogout?: () => void }> = ({ onLogout }) => {
                       {overview[train.trainNo] && (
                         <div className="train-overview-stats" onClick={(e) => e.stopPropagation()}>
                           <span className="overview-stat" title="TTEs assigned">
-                             {overview[train.trainNo]?.ttes?.count ?? 0} TTE{(overview[train.trainNo]?.ttes?.count ?? 0) !== 1 ? 's' : ''}
+                            {overview[train.trainNo]?.ttes?.count ?? 0} TTE{(overview[train.trainNo]?.ttes?.count ?? 0) !== 1 ? 's' : ''}
                             {(overview[train.trainNo]?.ttes?.list?.length ?? 0) > 0 && (
                               <span className="overview-detail">
                                 ({overview[train.trainNo].ttes.list.map((t: any) => t.name || t.employeeId).join(', ')})
@@ -441,7 +441,7 @@ const LandingPage: React.FC<{ onLogout?: () => void }> = ({ onLogout }) => {
                             )}
                           </span>
                           <span className="overview-stat" title="Total passengers">
-                             {overview[train.trainNo]?.passengers?.total ?? 0} passengers
+                            {overview[train.trainNo]?.passengers?.total ?? 0} passengers
                           </span>
                         </div>
                       )
@@ -459,7 +459,7 @@ const LandingPage: React.FC<{ onLogout?: () => void }> = ({ onLogout }) => {
       {
         showAddTrainModal && (
           <div
-            className="modal-overlay"
+            className="modal-overlay add-train-bg"
             onClick={() => setShowAddTrainModal(false)}
           >
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -546,7 +546,7 @@ const LandingPage: React.FC<{ onLogout?: () => void }> = ({ onLogout }) => {
       {/* Sign Up TTE Modal */}
       {
         showSignUpTTEModal && (
-          <div className="modal-overlay" onClick={handleCloseTTEModal}>
+          <div className="modal-overlay signup-tte-bg" onClick={handleCloseTTEModal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <button className="modal-back-btn" onClick={handleCloseTTEModal} title="Close">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="18" height="18">

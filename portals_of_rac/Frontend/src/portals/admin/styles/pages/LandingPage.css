@@ -18,10 +18,11 @@
    ============================================================ */
 
 .landing-page {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 15px;
     min-height: 100vh;
+    padding: 15px;
+    background: url("https://lh3.googleusercontent.com/gg-dl/AOI_d_-2LSbtRc_FANiPi3yRr4ZxqboENKCoLLpkW8ATnCqc4LSKOI0DqlXT3dbZJLsADqzpYjdlrzf1y84FPt-n-atzbhGUou1IVkCs0e4KJL_IPjrG5OOoZNJeXzuGa0uCPPi3fylOi8355hHEhMCPH-A8MlbaXVAOnZ93A7thxVc389VE=s1024-rj") center/cover no-repeat fixed;
+    background-color: #f8f9fa;
+    /* Fallback */
 }
 
 .landing-container {
@@ -744,15 +745,25 @@
     padding: 16px;
 }
 
+.modal-overlay.add-train-bg {
+    background: url("https://t4.ftcdn.net/jpg/10/55/39/65/360_F_1055396548_IJFVICX3EmAld9WVN9i8wuBtp97n3YuK.jpg") center/cover no-repeat fixed !important;
+}
+
+.modal-overlay.signup-tte-bg {
+    background: url("https://iemlabs.com/blogs/wp-content/uploads/sites/4/2024/03/tte-lobby.webp") center/cover no-repeat fixed !important;
+}
+
 .modal-content {
-    background: white;
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 12px;
     padding: 25px;
     max-width: 500px;
     width: 100%;
-    box-shadow: 0 10px 30px rgba(44, 62, 80, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     animation: modalSlideIn 0.25s ease;
-    border: 1px solid #e1e8ed;
+    border: 1px solid rgba(255, 255, 255, 0.4);
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
@@ -802,10 +813,10 @@
 .form-group select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #d5dbdb;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     font-size: 13px;
-    background: white;
+    background: rgba(255, 255, 255, 0.7);
     color: #34495e;
     transition: all 0.2s ease;
     box-sizing: border-box;

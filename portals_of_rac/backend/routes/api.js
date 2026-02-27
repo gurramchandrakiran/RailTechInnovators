@@ -669,6 +669,29 @@ router.post('/passenger/cancel',
   (req, res) => passengerController.markNoShow(req, res)
 );
 
+// Self-cancellation ticket action
+router.post('/passenger/self-cancel',
+  validationMiddleware.sanitizeBody,
+  validationMiddleware.checkTrainInitialized,
+  validationMiddleware.checkJourneyStarted,
+  (req, res) => passengerController.selfCancelTicket(req, res)
+);
+
+// Change Boarding Station - get available stations
+router.get('/passenger/available-boarding-stations/:pnr',
+  validationMiddleware.checkTrainInitialized,
+  validationMiddleware.checkJourneyStarted,
+  (req, res) => passengerController.getAvailableBoardingStations(req, res)
+);
+
+// Change Boarding Station action
+router.post('/passenger/change-boarding-station',
+  validationMiddleware.sanitizeBody,
+  validationMiddleware.checkTrainInitialized,
+  validationMiddleware.checkJourneyStarted,
+  (req, res) => passengerController.changeBoardingStation(req, res)
+);
+
 // Set passenger online/offline status (requires authentication)
 router.post('/passenger/set-status',
   authMiddleware,

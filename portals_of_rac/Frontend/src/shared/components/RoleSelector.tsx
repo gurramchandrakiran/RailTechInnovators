@@ -86,6 +86,18 @@ function RoleSelector(): React.ReactElement {
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
         >
+            {/* Background Video */}
+            <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="background-video"
+            >
+                <source src="/videos/Landing.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
             {/* Main cursor ripple */}
             <div className="cursor-ripple" ref={rippleRef} />
             {/* Trailing ripples for water-drag effect */}

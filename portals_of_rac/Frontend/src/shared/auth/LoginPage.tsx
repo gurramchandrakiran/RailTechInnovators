@@ -147,6 +147,17 @@ function LoginPage({ onLoginSuccess }: LoginPageProps): React.ReactElement {
 
     return (
         <div className="login-container">
+            <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="background-video"
+            >
+                <source src="/videos/Train.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
             <div className="login-box">
                 <div className="login-header">
                     <h1>{getRoleTitle()}</h1>

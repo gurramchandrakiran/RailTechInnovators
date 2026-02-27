@@ -136,6 +136,17 @@ function SignUpPage(): React.ReactElement {
 
     return (
         <div className="signup-container">
+            <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="background-video"
+            >
+                <source src="/videos/Train.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
             <div className="signup-box">
                 <div className="signup-header">
                     <h1>{getTitle()}</h1>

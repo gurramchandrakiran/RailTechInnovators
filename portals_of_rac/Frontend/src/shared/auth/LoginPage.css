@@ -9,11 +9,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Soft, refreshing Light Mint Gradient */
     background: linear-gradient(135deg, #e0f7fa 0%, #b2dfdb 100%);
     position: relative;
     padding: 20px;
     font-family: "Inter", "Segoe UI", sans-serif;
+    overflow: hidden;
+}
+
+/* =======================
+   Background Video
+   ======================= */
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
 }
 
 /* =======================
@@ -26,12 +39,15 @@
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.8);
     box-shadow: 0 8px 32px rgba(38, 166, 154, 0.15);
-
     border-radius: 16px;
     max-width: 380px;
     width: 100%;
     padding: 40px;
     animation: fadeIn 0.5s ease-out;
+    position: relative;
+    /* ensure it stays above video */
+    z-index: 1;
+    /* stay above video */
 }
 
 /* =======================
