@@ -1,0 +1,138 @@
+/* admin-portal/src/components/FormInput.css */
+
+.form-input-wrapper {
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #2d3748;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.required-asterisk {
+  color: #ef4444;
+  margin-left: 4px;
+}
+
+.form-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  background-color: white;
+  color: #2d3748;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-input:disabled {
+  background-color: #f7fafc;
+  color: #a0aec0;
+  cursor: not-allowed;
+}
+
+/* Icon support */
+.form-input-icon {
+  position: absolute;
+  left: 12px;
+  font-size: 16px;
+  pointer-events: none;
+  color: #718096;
+}
+
+.form-input.with-icon {
+  padding-left: 36px;
+}
+
+/* Error state */
+.form-input.error {
+  border-color: #f56565;
+  background-color: #fff5f5;
+}
+
+.form-input.error:focus {
+  border-color: #f56565;
+  box-shadow: 0 0 0 3px rgba(245, 101, 101, 0.1);
+}
+
+.form-input-wrapper.has-error .form-input {
+  border-color: #f56565;
+}
+
+/* Help and error messages */
+.form-error-message,
+.form-hint-message,
+.form-validation-message {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.form-error-message {
+  color: #c53030;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.form-error-message::before {
+  content: '⚠️';
+  font-size: 13px;
+}
+
+.form-hint-message {
+  color: #718096;
+  font-style: italic;
+}
+
+.form-validation-message {
+  color: #48bb78;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.form-validation-message::before {
+  content: '';
+  color: #48bb78;
+  font-weight: bold;
+}
+
+/* Placeholder styling */
+.form-input::placeholder {
+  color: #cbd5e0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form-input-wrapper {
+    margin-bottom: 14px;
+  }
+
+  .form-label {
+    font-size: 13px;
+  }
+
+  .form-input {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 12px;
+  }
+}

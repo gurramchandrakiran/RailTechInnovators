@@ -1,0 +1,249 @@
+/* passenger-portal/src/styles/pages/PassengerSignUpPage.css */
+/* Matches LoginPage.css — Light Mint Glass Theme */
+
+/* =======================
+   Page Container
+   ======================= */
+.signup-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e0f7fa 0%, #b2dfdb 100%);
+    position: relative;
+    padding: 20px;
+    font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* =======================
+   Sign-Up Card (Clean Glass)
+   ======================= */
+.signup-box {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px rgba(38, 166, 154, 0.15);
+    border-radius: 16px;
+    max-width: 420px;
+    width: 100%;
+    padding: 36px 40px;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =======================
+   Header
+   ======================= */
+.signup-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.signup-header h1 {
+    margin: 0 0 8px 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #004d40;
+    letter-spacing: -0.5px;
+}
+
+.signup-header p {
+    margin: 0;
+    color: #00695c;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+/* =======================
+   Form Elements
+   ======================= */
+.signup-form .form-group {
+    margin-bottom: 16px;
+}
+
+.signup-form .form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #004d40;
+    font-size: 13px;
+}
+
+.signup-form .form-group input {
+    width: 100%;
+    padding: 11px 12px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 77, 64, 0.08);
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    color: #004d40;
+    transition: all 0.2s ease;
+}
+
+.signup-form .form-group input::placeholder {
+    color: #80cbc4;
+}
+
+.signup-form .form-group input:focus {
+    outline: none;
+    background: #ffffff;
+    border-color: #26a69a;
+    box-shadow: 0 0 0 3px rgba(38, 166, 154, 0.2);
+}
+
+.signup-form .form-group small {
+    display: block;
+    margin-top: 4px;
+    font-size: 11px;
+    color: #80cbc4;
+}
+
+/* =======================
+   Password Requirements
+   ======================= */
+.password-requirements {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 0 0;
+}
+
+.password-requirements li {
+    font-size: 11px;
+    color: #80cbc4;
+    padding-left: 14px;
+    position: relative;
+}
+
+.password-requirements li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #80cbc4;
+}
+
+/* =======================
+   Show Password
+   ======================= */
+.signup-form .show-password {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+    margin-bottom: 20px;
+}
+
+.signup-form .show-password input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    cursor: pointer;
+    opacity: 0.8;
+    accent-color: #26a69a;
+}
+
+.signup-form .show-password label {
+    font-size: 13px;
+    color: #00695c;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* =======================
+   Messages
+   ======================= */
+.signup-form .error-message {
+    background: #fff0f0;
+    color: #d32f2f;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 12px;
+    border: 1px solid #ffcdd2;
+    text-align: center;
+}
+
+.signup-form .success-message {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 12px;
+    border: 1px solid #c8e6c9;
+    text-align: center;
+}
+
+/* =======================
+   Sign Up Button
+   ======================= */
+.signup-btn {
+    width: 100%;
+    padding: 12px;
+    background: #26a69a;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s ease, background 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(38, 166, 154, 0.3);
+}
+
+.signup-btn:hover:not(:disabled) {
+    background: #00897b;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px rgba(38, 166, 154, 0.4);
+}
+
+.signup-btn:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.signup-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #bbdefb;
+    box-shadow: none;
+}
+
+/* =======================
+   Footer
+   ======================= */
+.signup-footer {
+    margin-top: 24px;
+    text-align: center;
+    border-top: 1px solid rgba(0, 77, 64, 0.05);
+    padding-top: 16px;
+}
+
+.signup-footer p {
+    font-size: 13px;
+    color: #00695c;
+    margin: 0;
+}
+
+.signup-footer a {
+    color: #26a69a;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.signup-footer a:hover {
+    color: #00897b;
+    text-decoration: underline;
+}

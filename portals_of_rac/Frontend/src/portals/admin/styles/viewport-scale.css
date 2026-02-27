@@ -1,0 +1,378 @@
+/*
+ * VIEWPORT-SCALE CSS — ADMIN PORTAL
+ * Fluid zoom-like scaling using clamp() + vw units
+ * Layers on top of responsive-global.css
+ * Uses !important where needed to override responsive-global.css breakpoint rules
+ */
+
+/* ============================================
+   FLUID ROOT FONT-SIZE
+   Smoothly scales from ~12px at 320px → 16px at 1200px
+   ============================================ */
+html {
+    font-size: clamp(0.75rem, 0.625rem + 0.625vw, 1rem) !important;
+}
+
+/* ============================================
+   FLUID HEADINGS (global defaults)
+   ============================================ */
+h1 {
+    font-size: clamp(1.2rem, 0.85rem + 1.1vw, 1.75rem) !important;
+}
+
+h2 {
+    font-size: clamp(1rem, 0.75rem + 0.85vw, 1.4rem) !important;
+}
+
+h3 {
+    font-size: clamp(0.9rem, 0.7rem + 0.65vw, 1.15rem) !important;
+}
+
+h4 {
+    font-size: clamp(0.85rem, 0.65rem + 0.5vw, 1.05rem) !important;
+}
+
+/* ============================================
+   FLUID BODY TEXT
+   ============================================ */
+body {
+    font-size: clamp(0.8rem, 0.7rem + 0.3vw, 1rem) !important;
+    line-height: 1.5;
+}
+
+/* ============================================
+   HEADER: app-header (TrainApp pages)
+   ============================================ */
+.header-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    overflow: visible !important;
+    width: 100% !important;
+    color: white !important;
+}
+
+.header-content h1 {
+    font-size: clamp(0.9rem, 0.6rem + 1.1vw, 1.5rem) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    color: inherit !important;
+}
+
+.header-content h2 {
+    font-size: clamp(0.7rem, 0.45rem + 0.7vw, 1rem) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    color: inherit !important;
+    margin: 0 0 2px 0 !important;
+}
+
+.header-content .route {
+    font-size: clamp(0.55rem, 0.35rem + 0.5vw, 0.8rem) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* ============================================
+   HEADER: landing-header (Landing Page)
+   ============================================ */
+.landing-header h1 {
+    font-size: clamp(0.8rem, 0.5rem + 1.1vw, 1.3rem) !important;
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/* ============================================
+   FIX: Menu button overrides
+   responsive-global.css applies padding/height to ALL buttons
+   ============================================ */
+.menu-button {
+    min-height: auto !important;
+    max-height: none !important;
+    padding: 0 !important;
+    font-size: clamp(16px, 1.5vw + 8px, 22px) !important;
+    width: clamp(28px, 3vw, 36px) !important;
+    height: clamp(28px, 3vw, 36px) !important;
+    margin: 0 !important;
+}
+
+/* ============================================
+   FIX: Landing page overflow
+   ============================================ */
+.landing-page {
+    overflow-x: visible !important;
+}
+
+/* ============================================
+   TRAIN CONFIG BANNER (TRAIN / JOURNEY DATE / ROUTE card)
+   ============================================ */
+.train-config-banner {
+    padding: clamp(8px, 1vw, 15px) !important;
+    gap: clamp(6px, 1vw, 10px) !important;
+    flex-wrap: wrap;
+}
+
+.config-label {
+    font-size: clamp(0.55rem, 0.4rem + 0.3vw, 0.75rem) !important;
+}
+
+.config-value {
+    font-size: clamp(0.7rem, 0.5rem + 0.4vw, 1rem) !important;
+}
+
+/* ============================================
+   TRAIN INFO GRID (TrainDashboard)
+   ============================================ */
+.info-label {
+    font-size: clamp(0.55rem, 0.4rem + 0.25vw, 0.7rem) !important;
+}
+
+.info-value {
+    font-size: clamp(0.7rem, 0.5rem + 0.4vw, 0.95rem) !important;
+}
+
+.train-info-grid {
+    gap: clamp(6px, 0.8vw, 10px) !important;
+}
+
+.info-row {
+    padding: clamp(6px, 0.8vw, 10px) clamp(8px, 1vw, 12px) !important;
+}
+
+/* ============================================
+   JOURNEY SECTION (timeline, start button)
+   ============================================ */
+.journey-section {
+    padding: clamp(10px, 1.2vw, 20px) !important;
+    margin-bottom: clamp(10px, 1.5vw, 20px) !important;
+}
+
+.journey-section h2 {
+    font-size: clamp(0.85rem, 0.6rem + 0.5vw, 1.1rem) !important;
+    margin: 0 0 clamp(8px, 1vw, 20px) 0 !important;
+}
+
+.timeline-circle {
+    width: clamp(32px, 4vw, 50px) !important;
+    height: clamp(32px, 4vw, 50px) !important;
+    font-size: clamp(11px, 1vw + 4px, 16px) !important;
+}
+
+.timeline-station-name {
+    font-size: clamp(0.55rem, 0.4rem + 0.35vw, 0.8rem) !important;
+}
+
+.timeline-station-code {
+    font-size: clamp(0.5rem, 0.35rem + 0.3vw, 0.7rem) !important;
+}
+
+.timeline-info {
+    min-width: clamp(60px, 8vw, 100px) !important;
+    max-width: clamp(70px, 10vw, 120px) !important;
+}
+
+.btn-start-journey {
+    padding: clamp(6px, 0.8vw, 10px) clamp(12px, 1.5vw, 20px) !important;
+    font-size: clamp(0.7rem, 0.5rem + 0.35vw, 0.9rem) !important;
+    min-height: auto !important;
+    max-height: none !important;
+    max-width: clamp(200px, 30vw, 300px) !important;
+}
+
+/* ============================================
+   MAIN ACTIONS GRID (Train Controls, No-Show, Navigation)
+   ============================================ */
+.action-card-compact {
+    padding: clamp(8px, 1vw, 15px) !important;
+    min-height: clamp(60px, 8vw, 100px) !important;
+}
+
+.card-header h4 {
+    font-size: clamp(0.65rem, 0.5rem + 0.3vw, 0.8rem) !important;
+}
+
+.card-description {
+    font-size: clamp(0.55rem, 0.4rem + 0.25vw, 0.7rem) !important;
+    margin: clamp(4px, 0.5vw, 8px) 0 !important;
+}
+
+.card-arrow {
+    font-size: clamp(12px, 1.2vw + 4px, 18px) !important;
+}
+
+.btn-compact {
+    padding: clamp(4px, 0.5vw, 8px) !important;
+    font-size: clamp(0.6rem, 0.45rem + 0.25vw, 0.75rem) !important;
+    min-height: auto !important;
+    max-height: none !important;
+}
+
+/* ============================================
+   NO-SHOW SECTION
+   ============================================ */
+.noshow-section {
+    padding: clamp(8px, 1vw, 15px) !important;
+    margin-bottom: clamp(10px, 1.2vw, 20px) !important;
+}
+
+.noshow-section h3 {
+    font-size: clamp(0.7rem, 0.5rem + 0.35vw, 0.9rem) !important;
+    margin: 0 0 clamp(6px, 0.8vw, 12px) 0 !important;
+}
+
+.input-pnr {
+    padding: clamp(6px, 0.8vw, 10px) !important;
+    font-size: clamp(0.65rem, 0.5rem + 0.25vw, 0.8rem) !important;
+}
+
+.btn-noshow {
+    padding: clamp(6px, 0.8vw, 10px) clamp(10px, 1.2vw, 20px) !important;
+    font-size: clamp(0.65rem, 0.5rem + 0.25vw, 0.8rem) !important;
+    min-height: auto !important;
+    max-height: none !important;
+}
+
+/* ============================================
+   STATS & NAVIGATION GRID
+   ============================================ */
+.stat-box,
+.nav-card {
+    padding: clamp(8px, 1vw, 15px) !important;
+}
+
+.stat-label {
+    font-size: clamp(0.5rem, 0.4rem + 0.2vw, 0.7rem) !important;
+}
+
+.stat-value {
+    font-size: clamp(1.2rem, 0.8rem + 0.8vw, 1.75rem) !important;
+}
+
+.nav-icon {
+    font-size: clamp(16px, 1.5vw + 6px, 24px) !important;
+}
+
+.nav-text {
+    font-size: clamp(0.55rem, 0.4rem + 0.25vw, 0.75rem) !important;
+}
+
+/* ============================================
+   SECTION HEADERS
+   ============================================ */
+.section-title {
+    font-size: clamp(0.8rem, 0.55rem + 0.5vw, 1rem) !important;
+    margin: 0 0 clamp(8px, 1vw, 15px) 0 !important;
+}
+
+/* ============================================
+   TIMER
+   ============================================ */
+.timer-value {
+    font-size: clamp(1.2rem, 0.8rem + 0.8vw, 1.75rem) !important;
+}
+
+.timer-label {
+    font-size: clamp(0.5rem, 0.4rem + 0.2vw, 0.7rem) !important;
+}
+
+/* ============================================
+   COMBINED SECTION (TrainDashboard)
+   ============================================ */
+.combined-section {
+    padding: clamp(10px, 1.2vw, 20px) clamp(12px, 1.5vw, 22px) clamp(8px, 1vw, 18px) !important;
+}
+
+.combined-section-header h3 {
+    font-size: clamp(0.75rem, 0.55rem + 0.4vw, 1rem) !important;
+}
+
+/* ============================================
+   TRAIN CARDS (Landing Page)
+   ============================================ */
+.train-card {
+    padding: clamp(6px, 0.8vw, 12px) clamp(8px, 1vw, 16px) !important;
+    margin-bottom: 4px;
+    font-size: clamp(0.7rem, 0.55rem + 0.4vw, 0.85rem);
+}
+
+.train-card .train-name {
+    font-size: clamp(0.75rem, 0.55rem + 0.5vw, 0.95rem) !important;
+}
+
+.train-card .train-type {
+    font-size: clamp(0.6rem, 0.45rem + 0.35vw, 0.75rem);
+}
+
+.train-number {
+    font-size: clamp(0.7rem, 0.5rem + 0.4vw, 0.85rem) !important;
+}
+
+.coach-badge {
+    font-size: clamp(0.6rem, 0.45rem + 0.3vw, 0.75rem) !important;
+    padding: 1px 5px !important;
+}
+
+.open-train-btn {
+    padding: 4px 10px !important;
+    font-size: clamp(0.6rem, 0.45rem + 0.3vw, 0.75rem) !important;
+    min-height: auto !important;
+    max-height: none !important;
+}
+
+.status-badge {
+    font-size: clamp(0.6rem, 0.45rem + 0.3vw, 0.75rem) !important;
+    padding: 2px 6px !important;
+}
+
+/* ============================================
+   ACTION BUTTONS (Landing Page) — always horizontal
+   Overrides responsive-global.css flex-direction: column
+   ============================================ */
+.action-buttons {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: clamp(4px, 0.6vw, 12px) !important;
+    width: auto !important;
+}
+
+.action-buttons .action-btn {
+    width: auto !important;
+    flex: 1 1 0 !important;
+}
+
+.action-btn {
+    padding: clamp(6px, 0.8vw, 10px) clamp(8px, 1vw, 20px) !important;
+    font-size: clamp(0.6rem, 0.4rem + 0.4vw, 0.85rem) !important;
+    min-height: auto !important;
+    max-height: none !important;
+    white-space: nowrap;
+    justify-content: center;
+}
+
+.action-btn .btn-icon {
+    font-size: clamp(12px, 1vw + 6px, 18px);
+}
+
+/* ============================================
+   FLUID CONTAINER PADDING
+   ============================================ */
+.app-content {
+    padding: clamp(8px, 1vw + 4px, 24px);
+}
+
+.home-page {
+    padding: clamp(8px, 1vw, 15px) !important;
+}

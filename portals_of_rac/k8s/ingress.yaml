@@ -1,0 +1,91 @@
+# ============================================
+# RAC Reallocation System - Kubernetes Ingress
+# ============================================
+#
+# Prerequisites:
+# 1. Install an Ingress Controller (nginx-ingress recommended)
+#    kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+#
+# 2. Configure DNS to point your domains to the Ingress IP
+#
+# 3. For TLS, install cert-manager and uncomment TLS sections
+#    kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.13.0/cert-manager.yaml
+#
+# ============================================
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rac-ingress
+  namespace: rac-system
+  labels:
+    app: rac-system
+  annotations:
+    # Nginx Ingress annotations
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
+    # WebSocket support
+    nginx.ingress.kubernetes.io/proxy-http-version: "1.1"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection "upgrade";
+    # Uncomment for TLS with cert-manager
+    # cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  ingressClassName: nginx
+  # Uncomment for TLS
+  # tls:
+  #   - hosts:
+  #       - admin.yourdomain.com
+  #       - tte.yourdomain.com
+  #       - passenger.yourdomain.com
+  #       - api.yourdomain.com
+  #     secretName: rac-tls-secret
+  rules:
+    # Admin Portal
+    - host: admin.yourdomain.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rac-admin-portal
+                port:
+                  number: 80
+    
+    # TTE Portal
+    - host: tte.yourdomain.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rac-tte-portal
+                port:
+                  number: 80
+    
+    # Passenger Portal (main domain)
+    - host: passenger.yourdomain.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rac-passenger-portal
+                port:
+                  number: 80
+    
+    # API Backend
+    - host: api.yourdomain.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rac-backend
+                port:
+                  number: 5000

@@ -1,0 +1,33 @@
+{
+    "thresholds": {
+        "http_req_duration": {
+            "p95": 500,
+            "p99": 1000
+        },
+        "errors": {
+            "rate": 0.01
+        },
+        "reallocation_duration": {
+            "p95": 1000
+        }
+    },
+    "scenarios": {
+        "smoke": {
+            "vus": 5,
+            "duration": "30s"
+        },
+        "load": {
+            "vus": 50,
+            "duration": "2m"
+        },
+        "stress": {
+            "vus": 100,
+            "duration": "5m"
+        },
+        "spike": {
+            "startVUs": 10,
+            "maxVUs": 200,
+            "duration": "3m"
+        }
+    }
+}

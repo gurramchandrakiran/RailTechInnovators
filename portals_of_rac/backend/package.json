@@ -1,0 +1,63 @@
+{
+  "name": "rac-reallocation-backend",
+  "version": "3.0.0",
+  "description": "Dynamic RAC Reallocation System - Backend API (Fully Configurable Version)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "server": "node server.js",
+    "build": "tsc",
+    "start:ts": "ts-node server.ts",
+    "dev:ts": "nodemon --exec ts-node server.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:chaos": "jest --testPathPattern=chaos --runInBand",
+    "test:load": "echo 'Run: k6 run k6/scenarios/reallocation-load.js'"
+  },
+  "keywords": [
+    "rac",
+    "railway",
+    "reallocation",
+    "websocket",
+    "indian-railways"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "csurf": "^1.11.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^8.2.1",
+    "joi": "^17.11.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.3.0",
+    "mongoose": "^9.0.1",
+    "node-cache": "^5.1.2",
+    "nodemailer": "^7.0.11",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0",
+    "web-push": "^3.6.7",
+    "ws": "^8.14.2",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.10.1",
+    "@types/supertest": "^6.0.3",
+    "jest": "^30.2.0",
+    "nodemon": "^3.0.2",
+    "supertest": "^7.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}

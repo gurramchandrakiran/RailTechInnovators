@@ -1,0 +1,350 @@
+/* QRTicketViewPage.css – Standalone E-Boarding Pass viewed from QR scan */
+
+.qr-ticket-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
+    font-family: "Segoe UI", "Roboto", sans-serif;
+}
+
+/* Error State */
+.qr-ticket-error {
+    text-align: center;
+    background: white;
+    padding: 50px 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+}
+
+.qr-ticket-error .error-icon {
+    font-size: 56px;
+    margin-bottom: 16px;
+}
+
+.qr-ticket-error h2 {
+    color: #c0392b;
+    margin: 0 0 8px;
+    font-size: 20px;
+}
+
+.qr-ticket-error p {
+    color: #64748b;
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Ticket Card */
+.qr-ticket-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    max-width: 480px;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Header */
+.ticket-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 22px 24px;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+}
+
+.ticket-header-icon {
+    font-size: 36px;
+}
+
+.ticket-header h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.ticket-header p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* Status Banner */
+.ticket-status-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 24px;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.ticket-status-banner.status-cnf {
+    background: linear-gradient(135deg, #d5f5e3, #a3e4bc);
+    color: #15803d;
+}
+
+.ticket-status-banner.status-rac {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: #b45309;
+}
+
+.ticket-status-banner.status-wl {
+    background: linear-gradient(135deg, #fee2e2, #fca5a5);
+    color: #dc2626;
+}
+
+.status-label {
+    padding: 4px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.upgraded-badge {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Sections */
+.ticket-section {
+    padding: 16px 24px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.ticket-section h3 {
+    margin: 0 0 12px;
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+/* Account / Signup Details section — subtle purple tint */
+.ticket-section--account {
+    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+    border-left: 4px solid #7c3aed;
+}
+
+.ticket-section--account h3 {
+    color: #5b21b6;
+}
+
+/* Grid for fields */
+.ticket-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.ticket-field {
+    flex: 1 1 45%;
+    min-width: 0;
+}
+
+.ticket-field--full {
+    flex: 1 1 100%;
+}
+
+.field-label {
+    display: block;
+    font-size: 11px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.field-value {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1e293b;
+    word-break: break-word;
+}
+
+.field-value.name-value {
+    font-size: 18px;
+    color: #0f172a;
+}
+
+.field-value.pnr-value {
+    font-family: "Courier New", monospace;
+    font-size: 17px;
+    color: #2563eb;
+    letter-spacing: 1px;
+}
+
+.field-value.irctc-value {
+    font-family: "Courier New", monospace;
+    font-size: 15px;
+    color: #7c3aed;
+    letter-spacing: 0.5px;
+}
+
+/* Journey Route */
+.journey-route {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+}
+
+.route-point {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.route-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.from-dot {
+    background: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.to-dot {
+    background: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.route-label {
+    display: block;
+    font-size: 11px;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+.route-station {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.route-line {
+    flex: 1;
+    height: 2px;
+    background: repeating-linear-gradient(
+        90deg,
+        #cbd5e1 0px,
+        #cbd5e1 6px,
+        transparent 6px,
+        transparent 12px
+    );
+    min-width: 30px;
+}
+
+/* Seat Section */
+.seat-section .seat-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.seat-block {
+    text-align: center;
+    flex: 1;
+}
+
+.seat-label {
+    display: block;
+    font-size: 11px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.seat-number {
+    display: block;
+    font-size: 22px;
+    font-weight: 800;
+    color: #2c3e50;
+}
+
+.seat-divider {
+    width: 1px;
+    height: 40px;
+    background: #cbd5e1;
+}
+
+/* Footer */
+.ticket-footer {
+    padding: 14px 24px;
+    text-align: center;
+    background: #f8fafc;
+}
+
+.ticket-footer p {
+    margin: 0;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.ticket-footer .verify-note {
+    margin-top: 6px;
+    font-weight: 600;
+    color: #15803d;
+    font-size: 13px;
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+    .qr-ticket-page {
+        padding: 10px;
+        align-items: flex-start;
+    }
+
+    .ticket-header {
+        padding: 18px 16px;
+    }
+
+    .ticket-header h1 {
+        font-size: 17px;
+    }
+
+    .ticket-section {
+        padding: 14px 16px;
+    }
+
+    .ticket-field {
+        flex: 1 1 100%;
+    }
+
+    .journey-route {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .route-line {
+        width: 2px;
+        height: 20px;
+        min-width: auto;
+        margin-left: 6px;
+        background: repeating-linear-gradient(
+            180deg,
+            #cbd5e1 0px,
+            #cbd5e1 4px,
+            transparent 4px,
+            transparent 8px
+        );
+    }
+
+    .seat-number {
+        font-size: 18px;
+    }
+}

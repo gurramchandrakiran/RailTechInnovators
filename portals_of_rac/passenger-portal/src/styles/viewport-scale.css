@@ -1,0 +1,44 @@
+/*
+ * VIEWPORT-SCALE CSS — PASSENGER PORTAL
+ * Fluid zoom-like scaling using clamp() + vw units
+ * Uses !important where needed to override responsive-global.css breakpoint rules
+ */
+
+html {
+    font-size: clamp(0.75rem, 0.625rem + 0.625vw, 1rem) !important;
+}
+
+h1 {
+    font-size: clamp(1.25rem, 1rem + 1.25vw, 1.75rem) !important;
+}
+
+h2 {
+    font-size: clamp(1.1rem, 0.9rem + 0.8vw, 1.4rem) !important;
+}
+
+h3 {
+    font-size: clamp(1rem, 0.85rem + 0.6vw, 1.2rem) !important;
+}
+
+h4 {
+    font-size: clamp(0.9rem, 0.8rem + 0.4vw, 1.1rem) !important;
+}
+
+body {
+    font-size: clamp(0.8rem, 0.7rem + 0.35vw, 1rem) !important;
+    line-height: 1.5;
+}
+
+/* Menu button override (responsive-global applies padding/height to all buttons) */
+.menu-button {
+    min-height: auto !important;
+    max-height: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.app-content,
+.page,
+[class*="-page"] {
+    padding: clamp(8px, 1vw + 4px, 24px);
+}

@@ -1,0 +1,375 @@
+/* Report Deboarding Page Styles */
+
+.report-deboarding-page {
+    min-height: 100vh;
+    background: #f4f6f8;
+    padding: 20px;
+}
+
+.deboarding-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.page-header>div {
+    flex: 1;
+    text-align: center;
+}
+
+.page-header h1 {
+    color: #2c3e50;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.page-header .subtitle {
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+.back-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.back-btn:hover {
+    background: #f8f9fa;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.back-btn svg {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    stroke: #2c3e50;
+    display: block;
+}
+
+/* Progress Steps */
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.progress-steps::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: #e1e8ed;
+    z-index: 0;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+.step-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #e1e8ed;
+    color: #7f8c8d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.step.active .step-number {
+    background: #3498db;
+    color: white;
+}
+
+.step.completed .step-number {
+    background: #27ae60;
+    color: white;
+}
+
+.step-label {
+    font-size: 11px;
+    color: #7f8c8d;
+    text-align: center;
+}
+
+.step.active .step-label {
+    color: #3498db;
+    font-weight: 600;
+}
+
+/* Step Content */
+.step-content {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(44, 62, 80, 0.1);
+    margin-bottom: 20px;
+}
+
+.step-content h2 {
+    color: #2c3e50;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.step-content .hint {
+    color: #7f8c8d;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+/* Input Group */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    color: #2c3e50;
+    font-weight: 500;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* Buttons */
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-danger {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-danger:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+}
+
+.btn-danger:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    width: 100%;
+    padding: 12px;
+    background: #ecf0f1;
+    color: #7f8c8d;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: #e1e8ed;
+}
+
+/* Passenger List */
+.passenger-list {
+    margin-bottom: 20px;
+}
+
+.passenger-card {
+    padding: 15px;
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.passenger-card:hover {
+    border-color: #3498db;
+    background: #f8fafc;
+}
+
+.passenger-card.selected {
+    border-color: #3498db;
+    background: #ebf5fb;
+}
+
+.passenger-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.passenger-name {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.passenger-berth {
+    background: #2c3e50;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.passenger-route {
+    font-size: 13px;
+    color: #7f8c8d;
+}
+
+/* Station Info */
+.station-info {
+    margin-bottom: 20px;
+}
+
+.route-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.station-badge {
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.station-badge.boarding {
+    background: #27ae60;
+    color: white;
+}
+
+.station-badge.destination {
+    background: #e74c3c;
+    color: white;
+}
+
+.deboarding-zone {
+    background: #f39c12;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.arrow {
+    color: #bdc3c7;
+    font-size: 20px;
+}
+
+/* Info Section */
+.info-section {
+    background: #fff9e6;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #f39c12;
+}
+
+.info-section h3 {
+    color: #d68910;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.info-section ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #7f8c8d;
+    font-size: 13px;
+}
+
+.info-section li {
+    margin-bottom: 6px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .progress-steps {
+        gap: 5px;
+    }
+
+    .step-label {
+        font-size: 9px;
+    }
+
+    .step-number {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+    }
+}

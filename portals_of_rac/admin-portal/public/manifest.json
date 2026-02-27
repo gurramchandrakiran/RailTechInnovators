@@ -1,0 +1,28 @@
+{
+  "short_name": "RAC System",
+  "name": "Dynamic RAC Reallocation System",
+  "description": "Dynamic RAC Reallocation System for Train 17225 Amaravathi Express — Real-time RAC berth management and simulation.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "16x16 24x24 32x32 48x48 64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#667eea",
+  "background_color": "#ffffff"
+}

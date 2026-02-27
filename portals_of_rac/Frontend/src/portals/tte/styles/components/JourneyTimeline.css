@@ -1,0 +1,272 @@
+/* tte-portal/src/components/JourneyTimeline.css */
+/* Train Simulation - Journey Progress styles (matches Admin portal) */
+
+.journey-timeline-container {
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border: 1px solid #e1e8ed;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e1e8ed;
+}
+
+.timeline-header h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.station-progress-badge {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Timeline Scroll Container */
+.timeline-scroll-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 0 20px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #bdc3c7 #ecf0f1;
+}
+
+.timeline-scroll-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.timeline-scroll-wrapper::-webkit-scrollbar-track {
+    background: #ecf0f1;
+    border-radius: 4px;
+}
+
+.timeline-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: #bdc3c7;
+    border-radius: 4px;
+}
+
+.timeline-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #95a5a6;
+}
+
+/* Timeline Track - Horizontal Layout */
+.timeline-track {
+    display: flex;
+    align-items: flex-start;
+    min-width: min-content;
+    padding: 0 10px;
+    position: relative;
+}
+
+/* Continuous Background Line */
+.timeline-track::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 60px;
+    right: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #d5dbdb 0%, #bdc3c7 100%);
+    z-index: 0;
+}
+
+/* Station Item */
+.station-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* Connecting Line */
+.connecting-line-behind {
+    position: absolute;
+    left: -30px;
+    top: 25px;
+    width: 60px;
+    height: 4px;
+    z-index: 1;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.connecting-line-behind.completed {
+    background: linear-gradient(90deg, #27ae60 0%, #229954 100%);
+}
+
+.connecting-line-behind.upcoming {
+    background: linear-gradient(90deg, #d5dbdb 0%, #bdc3c7 100%);
+}
+
+/* Timeline Circle */
+.timeline-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.timeline-circle.completed {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    color: white;
+}
+
+.timeline-circle.current {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    animation: pulse-timeline 2s infinite;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.5);
+}
+
+.timeline-circle.upcoming {
+    background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+    color: #7f8c8d;
+}
+
+@keyframes pulse-timeline {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(52, 152, 219, 0.5);
+    }
+
+    50% {
+        transform: scale(1.15);
+        box-shadow: 0 6px 16px rgba(52, 152, 219, 0.7);
+    }
+}
+
+/* Station Info */
+.station-info {
+    text-align: center;
+    min-width: 100px;
+    max-width: 120px;
+}
+
+.station-name {
+    font-weight: 500;
+    font-size: 13px;
+    color: #2c3e50;
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.station-code {
+    font-size: 11px;
+    color: #7f8c8d;
+    font-weight: 600;
+    background: #ecf0f1;
+    padding: 2px 8px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.current-badge {
+    display: inline-block;
+    margin-top: 6px;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+/* Legend */
+.timeline-legend {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #e1e8ed;
+    margin-top: 16px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #5a6c7d;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.legend-dot.completed {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+}
+
+.legend-dot.current {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+.legend-dot.upcoming {
+    background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+}
+
+/* Empty State */
+.journey-timeline-empty {
+    padding: 40px;
+    text-align: center;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 8px;
+    border: 1px solid #e1e8ed;
+    color: #7f8c8d;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .timeline-circle {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .connecting-line-behind {
+        width: 40px;
+        left: -20px;
+    }
+
+    .station-name {
+        font-size: 11px;
+    }
+
+    .station-code {
+        font-size: 10px;
+    }
+
+    .timeline-legend {
+        gap: 12px;
+    }
+}

@@ -1,0 +1,10 @@
+# ============================================
+# RAC Reallocation System - Kubernetes Namespace
+# ============================================
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: rac-system
+  labels:
+    app.kubernetes.io/name: rac-system
+    app.kubernetes.io/part-of: rac-reallocation

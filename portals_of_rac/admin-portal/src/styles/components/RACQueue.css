@@ -1,0 +1,138 @@
+/* admin-portal/src/components/RACQueue.css */
+
+.rac-queue-panel {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  margin: 20px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.panel-header {
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-size: 22px;
+  font-weight: 700;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 8px;
+}
+
+.empty-queue {
+  text-align: center;
+  padding: 50px 0;
+  color: #4caf50;
+  font-size: 18px;
+}
+
+.rac-table-container {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.rac-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.rac-table thead {
+  background: white;
+  color: #333;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 2px solid #ddd;
+}
+
+.rac-table th {
+  padding: 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.rac-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+}
+
+.rac-table tr:hover {
+  background: white;
+}
+
+.rac-table tr.priority-high {
+  background: white;
+}
+
+.position {
+  font-weight: bold;
+  color: #2196f3;
+}
+
+.rac-number {
+  font-weight: 600;
+  color: #ff9800;
+}
+
+.pnr {
+  font-family: monospace;
+  color: #666;
+}
+
+.name {
+  font-weight: 500;
+}
+
+.age-gender {
+  text-align: center;
+  color: #555;
+}
+
+.class {
+  font-weight: 600;
+  color: #9c27b0;
+}
+
+.journey {
+  font-size: 13px;
+  color: #555;
+}
+
+.queue-footer {
+  text-align: center;
+  padding: 15px 0;
+  color: #666;
+  font-style: italic;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .rac-table th, .rac-table td {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rac-queue-panel {
+    padding: 16px;
+  }
+  
+  .panel-header {
+    font-size: 20px;
+  }
+  
+  .rac-table th, .rac-table td {
+    padding: 8px;
+    font-size: 11px;
+  }
+  
+  .queue-footer {
+    font-size: 12px;
+  }
+}

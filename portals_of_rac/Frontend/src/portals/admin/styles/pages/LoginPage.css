@@ -1,0 +1,275 @@
+/* admin-portal/src/styles/pages/LoginPage.css */
+/* RAC Admin Portal – Light Mint Glass (synced with Passenger Portal) */
+
+/* =======================
+   Page Container
+   ======================= */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Soft, refreshing Light Mint Gradient */
+    background: linear-gradient(135deg, #e0f7fa 0%, #b2dfdb 100%);
+    position: relative;
+    padding: 20px;
+    font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* =======================
+   Login Card (Clean Glass)
+   ======================= */
+.login-box {
+    /* Subtle White Glass */
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px rgba(38, 166, 154, 0.15);
+
+    border-radius: 16px;
+    max-width: 380px;
+    width: 100%;
+    padding: 40px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* =======================
+   Animation
+   ======================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =======================
+   Header
+   ======================= */
+.login-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login-header h1 {
+    margin: 0 0 8px 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #004d40;
+    letter-spacing: -0.5px;
+}
+
+.login-header p {
+    margin: 0;
+    color: #00695c;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+/* =======================
+   Tabs (Passenger / Admin) - Minimalist
+   ======================= */
+.login-tabs {
+    display: flex;
+    border-bottom: 1px solid rgba(0, 77, 64, 0.05);
+    margin-bottom: 30px;
+    gap: 20px;
+    justify-content: center;
+}
+
+.login-tab {
+    padding: 10px 0;
+    background: none;
+    border: none;
+    font-size: 13px;
+    font-weight: 500;
+    color: #80cbc4;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.login-tab:hover {
+    color: #26a69a;
+}
+
+.login-tab.active {
+    color: #004d40;
+    font-weight: 600;
+}
+
+/* Underline indicator */
+.login-tab::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 0;
+    height: 2px;
+    background: #004d40;
+    transition: width 0.3s ease;
+}
+
+.login-tab.active::after {
+    width: 100%;
+}
+
+/* =======================
+   Form Elements
+   ======================= */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #004d40;
+    font-size: 13px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    /* Soft white background */
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 77, 64, 0.08);
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    color: #004d40;
+    transition: all 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #80cbc4;
+}
+
+.form-group input:focus {
+    outline: none;
+    background: #ffffff;
+    border-color: #26a69a;
+    box-shadow: 0 0 0 3px rgba(38, 166, 154, 0.2);
+}
+
+.form-group input:disabled {
+    background-color: rgba(224, 247, 250, 0.5);
+    color: #80cbc4;
+    cursor: not-allowed;
+}
+
+/* =======================
+   Show Password
+   ======================= */
+.show-password {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 24px;
+}
+
+.show-password input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    cursor: pointer;
+    opacity: 0.8;
+    accent-color: #26a69a;
+}
+
+.show-password label {
+    font-size: 13px;
+    color: #00695c;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* =======================
+   Error Message
+   ======================= */
+.error-message {
+    background: #fff0f0;
+    color: #d32f2f;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    border: 1px solid #ffcdd2;
+    text-align: center;
+}
+
+/* =======================
+   Login Button (Mint Theme)
+   ======================= */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #26a69a;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s ease, background 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(38, 166, 154, 0.3);
+}
+
+.login-btn:hover:not(:disabled) {
+    background: #00897b;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px rgba(38, 166, 154, 0.4);
+}
+
+.login-btn:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.login-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #bbdefb;
+    box-shadow: none;
+}
+
+/* =======================
+   Footer
+   ======================= */
+.login-footer {
+    margin-top: 30px;
+    text-align: center;
+    border-top: 1px solid rgba(0, 77, 64, 0.05);
+    padding-top: 20px;
+}
+
+.login-footer p {
+    font-size: 13px;
+    color: #00695c;
+    margin: 0;
+}
+
+.login-footer a {
+    color: #00897b;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+.login-footer small {
+    display: block;
+    margin-top: 15px;
+    font-size: 11px;
+    color: #80cbc4;
+    font-family: monospace;
+}

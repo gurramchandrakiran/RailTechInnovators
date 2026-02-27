@@ -1,0 +1,14 @@
+# robots.txt for Dynamic RAC Reallocation System
+# Learn more: https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+# Disallow sensitive or backend routes
+Disallow: /api/
+Disallow: /admin/
+Disallow: /config/
+Disallow: /backend/
+
+# Sitemap (optional but recommended)
+Sitemap: https://your-domain.com/sitemap.xml

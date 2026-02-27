@@ -1,0 +1,192 @@
+# ============================================
+# RAC Reallocation System - Continuous Deployment
+# ============================================
+#
+# Triggers: 
+#   - Push to main (after CI) → Deploy to staging
+#   - Release tag (v*) → Deploy to production
+#
+# Prerequisites:
+#   Set these secrets in GitHub repo settings:
+#   - DOCKER_USERNAME: Docker Hub username
+#   - DOCKER_PASSWORD: Docker Hub password/token
+#   - (Optional) DEPLOY_SSH_KEY, DEPLOY_HOST for server deployment
+#
+# ============================================
+
+name: CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  release:
+    types: [ published ]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deploy to environment'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
+
+env:
+  NODE_VERSION: '20'
+  REGISTRY: docker.io
+  IMAGE_PREFIX: ${{ secrets.DOCKER_USERNAME }}/rac
+
+jobs:
+  # ─────────────────────────────────────────
+  # Build and Push Docker Images
+  # ─────────────────────────────────────────
+  build-and-push:
+    name: Build & Push Images
+    runs-on: ubuntu-latest
+    
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Determine version
+        id: version
+        run: |
+          if [[ "${{ github.event_name }}" == "release" ]]; then
+            echo "version=${{ github.event.release.tag_name }}" >> $GITHUB_OUTPUT
+          else
+            echo "version=sha-${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      
+      # Build and push Backend
+      - name: Build & Push Backend
+        uses: docker/build-push-action@v6
+        with:
+          context: ./backend
+          push: true
+          tags: |
+            ${{ env.IMAGE_PREFIX }}-backend:${{ steps.version.outputs.version }}
+            ${{ env.IMAGE_PREFIX }}-backend:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      
+      # Build and push Admin Portal
+      - name: Build & Push Admin Portal
+        uses: docker/build-push-action@v6
+        with:
+          context: ./admin-portal
+          push: true
+          tags: |
+            ${{ env.IMAGE_PREFIX }}-admin:${{ steps.version.outputs.version }}
+            ${{ env.IMAGE_PREFIX }}-admin:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      
+      # Build and push TTE Portal
+      - name: Build & Push TTE Portal
+        uses: docker/build-push-action@v6
+        with:
+          context: ./tte-portal
+          push: true
+          tags: |
+            ${{ env.IMAGE_PREFIX }}-tte:${{ steps.version.outputs.version }}
+            ${{ env.IMAGE_PREFIX }}-tte:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      
+      # Build and push Passenger Portal
+      - name: Build & Push Passenger Portal
+        uses: docker/build-push-action@v6
+        with:
+          context: ./passenger-portal
+          push: true
+          tags: |
+            ${{ env.IMAGE_PREFIX }}-passenger:${{ steps.version.outputs.version }}
+            ${{ env.IMAGE_PREFIX }}-passenger:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  # ─────────────────────────────────────────
+  # Deploy to Staging
+  # ─────────────────────────────────────────
+  deploy-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: build-and-push
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    environment: staging
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Deploy notification
+        run: |
+          echo "🚀 Deploying version ${{ needs.build-and-push.outputs.version }} to STAGING"
+          echo "Images pushed:"
+          echo "  - ${{ env.IMAGE_PREFIX }}-backend:${{ needs.build-and-push.outputs.version }}"
+          echo "  - ${{ env.IMAGE_PREFIX }}-admin:${{ needs.build-and-push.outputs.version }}"
+          echo "  - ${{ env.IMAGE_PREFIX }}-tte:${{ needs.build-and-push.outputs.version }}"
+          echo "  - ${{ env.IMAGE_PREFIX }}-passenger:${{ needs.build-and-push.outputs.version }}"
+
+      # Uncomment and configure for actual deployment:
+      # - name: Deploy to server via SSH
+      #   uses: appleboy/ssh-action@v1.0.3
+      #   with:
+      #     host: ${{ secrets.STAGING_HOST }}
+      #     username: ${{ secrets.STAGING_USER }}
+      #     key: ${{ secrets.STAGING_SSH_KEY }}
+      #     script: |
+      #       cd /opt/rac-system
+      #       docker-compose pull
+      #       docker-compose up -d
+      #       docker system prune -f
+
+  # ─────────────────────────────────────────
+  # Deploy to Production
+  # ─────────────────────────────────────────
+  deploy-production:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: build-and-push
+    if: github.event_name == 'release'
+    environment: production
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Deploy notification
+        run: |
+          echo "🚀 Deploying version ${{ needs.build-and-push.outputs.version }} to PRODUCTION"
+          echo "Release: ${{ github.event.release.name }}"
+          echo "Images pushed:"
+          echo "  - ${{ env.IMAGE_PREFIX }}-backend:${{ needs.build-and-push.outputs.version }}"
+          echo "  - ${{ env.IMAGE_PREFIX }}-admin:${{ needs.build-and-push.outputs.version }}"
+          echo "  - ${{ env.IMAGE_PREFIX }}-tte:${{ needs.build-and-push.outputs.version }}"
+          echo "  - ${{ env.IMAGE_PREFIX }}-passenger:${{ needs.build-and-push.outputs.version }}"
+
+      # Uncomment and configure for actual deployment:
+      # - name: Deploy to production server via SSH
+      #   uses: appleboy/ssh-action@v1.0.3
+      #   with:
+      #     host: ${{ secrets.PROD_HOST }}
+      #     username: ${{ secrets.PROD_USER }}
+      #     key: ${{ secrets.PROD_SSH_KEY }}
+      #     script: |
+      #       cd /opt/rac-system
+      #       docker-compose -f docker-compose.yml -f docker-compose.prod.yml pull
+      #       docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+      #       docker system prune -f

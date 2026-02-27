@@ -1,0 +1,597 @@
+/* 
+ * GLOBAL RESPONSIVE STYLES - ADMIN PORTAL
+ * Mobile-first approach for RAC Reallocation System
+ * Applies to all pages in the Admin Portal
+ */
+
+/* ============================================
+   MOBILE BREAKPOINTS
+   ============================================ */
+/* Mobile: 320px - 480px */
+/* Tablet: 481px - 768px */
+/* Desktop: 769px - 1024px */
+/* Large Desktop: 1025px+ */
+
+/* ============================================
+   CRITICAL MOBILE VIEWPORT FIXES
+   ============================================ */
+/* Prevent horizontal overflow on all devices */
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Mobile-specific root scaling */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  /* Force all containers to respect viewport */
+  * {
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+
+  /* Prevent any element from causing overflow */
+  .page,
+  [class*="-page"],
+  .container,
+  .wrapper,
+  .content {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+
+  body {
+    font-size: 13px;
+  }
+
+  /* Tighter padding on very small screens */
+  .page,
+  [class*="-page"],
+  .container,
+  .wrapper,
+  .content {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  html {
+    font-size: 12px;
+  }
+
+  .page,
+  [class*="-page"],
+  .container,
+  .wrapper,
+  .content {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+}
+
+/* ============================================
+   GLOBAL TABLE RESPONSIVENESS
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* Make all tables scrollable horizontally */
+  .table-container,
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+
+  /* Minimum column widths to prevent crushing */
+  table th,
+  table td {
+    min-width: 80px;
+    white-space: nowrap;
+  }
+
+  /* Table wrapper with shadow for scroll indication */
+  .table-container {
+    box-shadow: inset -10px 0 10px -10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* ============================================
+   GLOBAL BUTTON TOUCH TARGETS
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* SMALLER buttons for mobile - properly scaled down */
+  button,
+  .btn,
+  .button,
+  a.btn {
+    height: auto !important;
+    min-height: 36px !important;
+    max-height: 44px !important;
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+  }
+
+  /* Icon-only buttons - smaller */
+  button.icon-only,
+  .btn-icon {
+    width: 36px !important;
+    height: 36px !important;
+    padding: 6px !important;
+  }
+
+  /* Button groups stack vertically */
+  .button-group,
+  .action-buttons {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .button-group button,
+  .action-buttons button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* Even smaller buttons on very small screens */
+  button,
+  .btn,
+  .button,
+  a.btn {
+    min-height: 32px !important;
+    max-height: 40px !important;
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+  }
+
+  button.icon-only,
+  .btn-icon {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 5px !important;
+  }
+}
+
+@media (max-width: 360px) {
+
+  button,
+  .btn,
+  .button,
+  a.btn {
+    min-height: 28px !important;
+    max-height: 36px !important;
+    padding: 5px 8px !important;
+    font-size: 10px !important;
+  }
+
+  button.icon-only,
+  .btn-icon {
+    width: 28px !important;
+    height: 28px !important;
+  }
+}
+
+/* ============================================
+   GLOBAL FORM RESPONSIVENESS
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* Forms stack vertically */
+  .form-row,
+  .form-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Full-width form inputs */
+  input,
+  select,
+  textarea,
+  .input,
+  .select {
+    width: 100% !important;
+    max-width: 100%;
+    margin-bottom: 12px;
+  }
+
+  /* Labels stack above inputs */
+  label {
+    display: block;
+    margin-bottom: 6px;
+    width: 100%;
+  }
+
+  /* Inline form elements stack */
+  .inline-form {
+    flex-direction: column;
+  }
+}
+
+/* ============================================
+   GLOBAL GRID RESPONSIVENESS
+   ============================================ */
+@media (max-width: 1024px) {
+
+  /* 2-column grids on tablet */
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Single column grids on mobile */
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .grid-5,
+  .grid-6 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Reduce grid gap on mobile */
+  [class*='grid-'] {
+    gap: 12px;
+  }
+}
+
+/* ============================================
+   GLOBAL NAVIGATION (SIDEBAR)
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* Hide sidebar by default on mobile */
+  .sidebar,
+  .navigation-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 280px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Show sidebar when open */
+  .sidebar.open,
+  .navigation-sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* Overlay when sidebar is open */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .sidebar-overlay.active {
+    display: block;
+  }
+
+  /* Hamburger menu button */
+  .hamburger-menu {
+    display: flex !important;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1001;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Remove left margin from main content */
+  .main-content,
+  .app-content {
+    margin-left: 0 !important;
+    padding-top: 60px;
+    /* Space for hamburger button */
+  }
+}
+
+/* ============================================
+   GLOBAL TEXT & TYPOGRAPHY
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* Scale down headings */
+  h1 {
+    font-size: 24px !important;
+  }
+
+  h2 {
+    font-size: 20px !important;
+  }
+
+  h3 {
+    font-size: 18px !important;
+  }
+
+  h4 {
+    font-size: 16px !important;
+  }
+
+  /* Ensure readable body text */
+  body,
+  p,
+  span {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Reduce padding in containers */
+  .container,
+  .content-wrapper {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* Further scale down on very small screens */
+  h1 {
+    font-size: 18px !important;
+  }
+
+  h2 {
+    font-size: 16px !important;
+  }
+
+  h3 {
+    font-size: 14px !important;
+  }
+
+  h4 {
+    font-size: 13px !important;
+  }
+
+  body,
+  p {
+    font-size: 12px !important;
+  }
+
+  /* More compact padding */
+  .container,
+  .content-wrapper {
+    padding: 8px !important;
+  }
+}
+
+@media (max-width: 360px) {
+
+  /* Even smaller on tiny screens */
+  h1 {
+    font-size: 16px !important;
+  }
+
+  h2 {
+    font-size: 14px !important;
+  }
+
+  h3,
+  h4 {
+    font-size: 12px !important;
+  }
+
+  body,
+  p,
+  span {
+    font-size: 11px !important;
+  }
+
+  /* Very compact padding */
+  .container,
+  .content-wrapper {
+    padding: 5px !important;
+  }
+}
+
+/* ============================================
+   GLOBAL CARD RESPONSIVENESS
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* Cards stack vertically */
+  .card-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Reduce card padding */
+  .card,
+  .card-container {
+    padding: 15px;
+    margin-bottom: 12px;
+  }
+
+  /* Card headers wrap */
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* ============================================
+   GLOBAL MODAL RESPONSIVENESS
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* Modals take full screen on mobile */
+  .modal,
+  .modal-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .modal-content {
+    padding: 20px 15px;
+  }
+
+  .modal-header {
+    padding: 15px;
+  }
+
+  .modal-footer {
+    padding: 15px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal-footer button {
+    width: 100%;
+  }
+}
+
+/* ============================================
+   GLOBAL FLEXBOX HELPERS
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* Force flex items to stack */
+  .flex-row-mobile-column {
+    flex-direction: column !important;
+  }
+
+  /* Wrap flex items */
+  .flex-wrap-mobile {
+    flex-wrap: wrap !important;
+  }
+
+  /* Full width flex items */
+  .flex-item-mobile-full {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+  }
+}
+
+/* ============================================
+   GLOBAL UTILITIES
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* Hide on mobile */
+  .hide-mobile {
+    display: none !important;
+  }
+
+  /* Show only on mobile */
+  .show-mobile {
+    display: block !important;
+  }
+
+  /* Reduce margins and padding */
+  .compact-mobile {
+    margin: 8px !important;
+    padding: 8px !important;
+  }
+
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Images scale proportionally */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ============================================
+   GLOBAL ACCESSIBILITY
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* Increase tap target spacing */
+  a,
+  button {
+    margin: 4px 0;
+  }
+
+  /* Focus states more visible on mobile */
+  *:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+  }
+
+  /* Prevent text selection issues */
+  button,
+  .clickable {
+    -webkit-touch-callout: none;
+    user-select: none;
+  }
+}
+
+/* ============================================
+   LANDSCAPE ORIENTATION
+   ============================================ */
+@media (max-width: 768px) and (orientation: landscape) {
+
+  /* Adjust for landscape mobile */
+  .page-header {
+    padding: 10px 15px;
+  }
+
+  .modal {
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+}
+
+/* ============================================
+   PRINT STYLES (BONUS)
+   ============================================ */
+@media print {
+
+  /* Hide navigation and non-essential elements */
+  .sidebar,
+  .hamburger-menu,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Expand main content for printing */
+  .main-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+}

@@ -1,0 +1,33 @@
+# ============================================
+# RAC Backend - ConfigMap (Non-sensitive config)
+# ============================================
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rac-backend-config
+  namespace: rac-system
+  labels:
+    app: rac-backend
+data:
+  NODE_ENV: "production"
+  PORT: "5000"
+  LOG_LEVEL: "WARN"
+  
+  # Database names
+  STATIONS_DB: "rac"
+  PASSENGERS_DB: "rac"
+  TRAIN_DETAILS_DB: "rac"
+  
+  # Collection names
+  STATIONS_COLLECTION: "17225"
+  PASSENGERS_COLLECTION: "17225_passengers"
+  TRAIN_DETAILS_COLLECTION: "Trains_Details"
+  
+  # Train configuration
+  DEFAULT_TRAIN_NO: "17225"
+  
+  # JWT settings
+  JWT_EXPIRES_IN: "24h"
+  
+  # CORS (update with your domain)
+  ALLOWED_ORIGINS: "https://admin.yourdomain.com,https://tte.yourdomain.com,https://passenger.yourdomain.com"

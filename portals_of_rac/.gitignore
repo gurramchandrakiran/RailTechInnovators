@@ -1,0 +1,87 @@
+# Dependencies
+node_modules/
+*/node_modules/
+**/node_modules/
+
+# Build outputs
+build/
+dist/
+*/build/
+*/dist/
+
+# Environment variables
+.env
+**/.env
+*/.env
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Temporary files
+*.tmp
+*.temp
+
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Package manager lock files (optional - uncomment if needed)
+# package-lock.json
+# yarn.lock
+
+# Gemini artifacts (optional - uncomment if you don't want to track)
+# .gemini/
+
+Learnings/
+Learnings\dockerSharing
+Architecture_Diagrams/
+/RAC-Reallocation-System_( 01-10 ).pptx
+/RAC-ReallocationSystem_(11-18 ).pptx
+/PPT_CONTENT.md
+SECURiTY_TODO.md
+/README.md
+ppt_content.pdf
+ppt_content.md
+/webpush_not_recivied.md
+/webpush_not_recvived
+comprehensive_rac_architecture.png
+count_lines.py
+CURRENT_VS_YOUR_SYSTEM.md
+DATA_ENGINEERING_INTELLIGENT_SYSTEMS_ANALYSIS.md
+LINKEDIN_POSTING_GUIDE.md
+PROJECT_STRUCTURE.md
+PROJECT_ANALYSIS.md
+generate_tree.py
+static_train.py
+demo.py
+app.py
+ppt/
+python_scripts/
+Logics_Used/
+DOCS/
+IMPROVEMENTS.MD
+SERVICE_EXPLANATION.md
+PROJECT_COMPLETE_DOCUMENTATION.txt
+PHASE_3_MULTIPLE_TRAIN_SUPPORT.md
+PROJECT_ANALYSIS.md
+MULTIPLE_TRAIN_PLAN.md
+STATE_PERSISTENCE_PLAN.md
+cmd_to_move files_From_bin_to_root.md

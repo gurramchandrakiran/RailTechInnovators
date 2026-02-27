@@ -1,0 +1,19 @@
+# ============================================
+# RAC Backend - Kubernetes Service
+# ============================================
+apiVersion: v1
+kind: Service
+metadata:
+  name: rac-backend
+  namespace: rac-system
+  labels:
+    app: rac-backend
+spec:
+  type: ClusterIP
+  selector:
+    app: rac-backend
+  ports:
+    - name: http
+      port: 5000
+      targetPort: 5000
+      protocol: TCP

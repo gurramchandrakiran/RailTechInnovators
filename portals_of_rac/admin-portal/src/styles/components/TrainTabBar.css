@@ -1,0 +1,154 @@
+/* ═══════════════════════════════════════════════════════
+   TrainTabBar — Excel-style sheet tabs for multi-train
+   Mint / teal theme to contrast the dark header
+   ═══════════════════════════════════════════════════════ */
+
+.train-tab-bar {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: linear-gradient(180deg, #e8f5f0 0%, #d4ede5 100%);
+    border-bottom: 1px solid #b8ddd0;
+    padding: 0 12px;
+    height: 34px;
+    min-height: 34px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.train-tab-bar::-webkit-scrollbar {
+    display: none;
+}
+
+/* ── Individual Tab ── */
+.train-tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 14px;
+    height: 100%;
+    font-size: 12.5px;
+    font-weight: 500;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    color: #4a7c6f;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    position: relative;
+    white-space: nowrap;
+    transition: color 0.15s, background 0.15s;
+    border-right: 1px solid rgba(0, 128, 96, 0.1);
+    letter-spacing: 0.3px;
+}
+
+.train-tab:hover {
+    color: #1a5c4a;
+    background: rgba(0, 128, 96, 0.08);
+}
+
+.train-tab.active {
+    color: #0d4f3c;
+    background: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+}
+
+.train-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    background: linear-gradient(90deg, #2d9f7f, #3bb896);
+    border-radius: 2px 2px 0 0;
+}
+
+/* Train icon in tab */
+.train-tab .tab-icon {
+    font-size: 11px;
+    opacity: 0.75;
+}
+
+.train-tab.active .tab-icon {
+    opacity: 1;
+}
+
+/* Train number label */
+.train-tab .tab-label {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Train name (smaller, dimmer) */
+.train-tab .tab-name {
+    font-size: 10.5px;
+    opacity: 0.6;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.train-tab.active .tab-name {
+    opacity: 0.85;
+}
+
+/* ── Close button on tab ── */
+.train-tab .tab-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    font-size: 11px;
+    color: rgba(74, 124, 111, 0.4);
+    cursor: pointer;
+    transition: all 0.12s;
+    margin-left: 2px;
+    background: none;
+    border: none;
+    padding: 0;
+    line-height: 1;
+}
+
+.train-tab .tab-close:hover {
+    color: #e05555;
+    background: rgba(224, 85, 85, 0.12);
+}
+
+/* ── Add (+) Button ── */
+.train-tab-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 24px;
+    margin-left: 4px;
+    border: 1px dashed rgba(45, 159, 127, 0.35);
+    border-radius: 4px;
+    background: transparent;
+    color: rgba(45, 159, 127, 0.6);
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.15s;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.train-tab-add:hover {
+    color: #1a8a6a;
+    border-color: #2d9f7f;
+    background: rgba(45, 159, 127, 0.1);
+}
+
+/* ── Empty state (no tabs) ── */
+.train-tab-bar .tab-empty-hint {
+    font-size: 11px;
+    color: rgba(74, 124, 111, 0.45);
+    padding: 0 8px;
+    white-space: nowrap;
+    font-style: italic;
+}

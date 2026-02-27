@@ -1,0 +1,469 @@
+.passenger-list-panel {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 24px 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.panel-header {
+    margin-bottom: 24px;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 16px;
+}
+
+.panel-header h3 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Statistics Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card.active {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border: 2px solid #667eea !important;
+}
+
+/* Specific stat colors */
+.stat-card.total {
+    background: white;
+    color: #333;
+    border: 1px solid #e0e0e0;
+}
+
+.stat-card.boarded {
+    background: white;
+    color: #333;
+    border: 1px solid #e0e0e0;
+}
+
+.stat-card.noShow {
+    background: white;
+    color: #333;
+    border: 1px solid #e0e0e0;
+}
+
+.stat-card.notBoarded {
+    background: white;
+    color: #333;
+    border: 1px solid #e0e0e0;
+}
+
+.stat-card.upcoming {
+    background: white;
+    color: #333;
+    border: 1px solid #e0e0e0;
+}
+
+.stat-card.cnf {
+    background: white;
+    color: #333;
+    border: 1px solid #e0e0e0;
+}
+
+.stat-card.rac {
+    background: white;
+    color: #333;
+    border: 1px solid #e0e0e0;
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 13px;
+    opacity: 0.95;
+    font-weight: 500;
+}
+
+/* Filters Section */
+.filters-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-group label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #555;
+}
+
+.filter-input,
+.filter-select {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+    background: white;
+}
+
+.filter-input:focus,
+.filter-select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.reset-btn {
+    align-self: end;
+    padding: 12px 20px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.reset-btn:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+/* Table */
+.table-container {
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.passengers-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.passengers-table thead {
+    background: white;
+    color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 2px solid #ddd;
+}
+
+.passengers-table th {
+    padding: 16px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.passengers-table th.sortable {
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+}
+
+.passengers-table th.sortable:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.passengers-table tbody tr {
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s;
+}
+
+.passengers-table tbody tr.row-no-show {
+    background: white;
+}
+
+.passengers-table tbody tr.row-boarded {
+    background: white;
+}
+
+.passengers-table tbody tr.row-missed {
+    background: white;
+}
+
+.passengers-table td {
+    padding: 14px 12px;
+    font-size: 14px;
+}
+
+.pnr-cell,
+.berth-cell {
+    font-family: "Courier New", monospace;
+    font-weight: 600;
+}
+
+.name-cell {
+    font-weight: 600;
+    color: #333;
+}
+
+.age-cell,
+.gender-cell {
+    text-align: center;
+    color: #666;
+}
+
+.station-cell {
+    font-weight: 500;
+    color: #555;
+    font-size: 13px;
+}
+
+.berth-type-cell {
+    font-size: 12px;
+    color: #777;
+}
+
+.class-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    background: #9c27b0;
+    color: white;
+}
+
+.pnr-status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.pnr-status-badge.cnf {
+    background: #4caf50;
+    color: white;
+}
+
+.pnr-status-badge.rac {
+    background: #ff9800;
+    color: white;
+}
+
+.rac-status-cell {
+    text-align: center;
+}
+
+.rac-status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.rac-status-badge.rac-active {
+    background: #ff9800;
+    color: white;
+}
+
+.rac-status-badge.rac-inactive {
+    background: #e0e0e0;
+    color: #999;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-badge.boarded {
+    background: #4caf50;
+    color: white;
+}
+
+.status-badge.no-show {
+    background: #f44336;
+    color: white;
+}
+
+.status-badge.missed {
+    background: #ff9800;
+    color: white;
+}
+
+.status-badge.upcoming {
+    background: #9e9e9e;
+    color: white;
+}
+
+.status-badge.unknown {
+    background: #e0e0e0;
+    color: #666;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+}
+
+.page-btn {
+    padding: 10px 16px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.page-btn:hover:not(:disabled) {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.page-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.page-info {
+    font-weight: 600;
+    color: #333;
+    padding: 0 16px;
+    font-size: 15px;
+}
+
+/* Empty States */
+.empty-state,
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+}
+
+.empty-state h3 {
+    color: #2c3e50;
+    margin-bottom: 12px;
+}
+
+.no-results p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .filters-section {
+        grid-template-columns: 1fr;
+    }
+
+    .reset-btn {
+        align-self: stretch;
+    }
+}
+
+@media (max-width: 768px) {
+    .passenger-list-panel {
+        padding: 16px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 16px;
+    }
+
+    .stat-value {
+        font-size: 24px;
+    }
+
+    .passengers-table th,
+    .passengers-table td {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+
+    .pagination {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .page-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .table-container {
+        font-size: 11px;
+    }
+
+    .passengers-table th,
+    .passengers-table td {
+        padding: 8px 6px;
+    }
+}

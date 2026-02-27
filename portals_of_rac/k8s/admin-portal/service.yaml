@@ -1,0 +1,55 @@
+# ============================================
+# RAC Frontend Portals - Kubernetes Services
+# ============================================
+apiVersion: v1
+kind: Service
+metadata:
+  name: rac-admin-portal
+  namespace: rac-system
+  labels:
+    app: rac-admin-portal
+spec:
+  type: ClusterIP
+  selector:
+    app: rac-admin-portal
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rac-tte-portal
+  namespace: rac-system
+  labels:
+    app: rac-tte-portal
+spec:
+  type: ClusterIP
+  selector:
+    app: rac-tte-portal
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rac-passenger-portal
+  namespace: rac-system
+  labels:
+    app: rac-passenger-portal
+spec:
+  type: ClusterIP
+  selector:
+    app: rac-passenger-portal
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      protocol: TCP

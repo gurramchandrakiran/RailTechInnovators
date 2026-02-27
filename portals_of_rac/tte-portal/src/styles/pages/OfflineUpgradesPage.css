@@ -1,0 +1,234 @@
+/* tte-portal/src/pages/OfflineUpgradesPage.css */
+
+.upgrades-page {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 8px;
+    padding: 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 12px rgba(44, 62, 80, 0.1);
+    border: 1px solid #e1e8ed;
+}
+
+.upgrades-header {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.upgrades-subtitle {
+    margin: 0 0 15px 0;
+    font-size: 13px;
+    color: #5a6c7d;
+}
+
+/* Filter Tabs */
+.filter-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.filter-tab {
+    padding: 8px 20px;
+    background: #ecf0f1;
+    color: #2c3e50;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 13px;
+    transition: all 0.2s ease;
+}
+
+.filter-tab:hover {
+    background: #d5dbdb;
+}
+
+.filter-tab.active {
+    background: #3498db;
+    color: white;
+    font-weight: 600;
+}
+
+.filter-tab.active.online {
+    background: #27ae60;
+}
+
+.filter-tab.active.offline {
+    background: #95a5a6;
+}
+
+.filter-tab.active.upgraded {
+    background: #27ae60;
+}
+
+/* Table Container */
+.table-container {
+    overflow-x: auto;
+    border: 1px solid #d5dbdb;
+    border-radius: 6px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+}
+
+.rac-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    background: white;
+}
+
+.rac-table thead {
+    background: linear-gradient(135deg, #ecf0f1 0%, #d5dbdb 100%);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 2px solid #bdc3c7;
+}
+
+.rac-table th {
+    padding: 8px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #bdc3c7;
+    white-space: nowrap;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #34495e;
+    letter-spacing: 0.3px;
+}
+
+.rac-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ecf0f1;
+    font-size: 12px;
+    color: #34495e;
+}
+
+.rac-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.rac-table tr:hover {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%);
+}
+
+.td-no {
+    text-align: center;
+    color: #95a5a6;
+    font-weight: 500;
+}
+
+.td-pnr {
+    font-family: 'Courier New', monospace;
+    color: #7f8c8d;
+    font-size: 11px;
+}
+
+.td-name {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.td-rac {
+    font-weight: 600;
+    color: #f39c12;
+    font-size: 11px;
+}
+
+.td-class {
+    font-weight: 600;
+    color: #3498db;
+}
+
+.badge-rac {
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 600;
+    display: inline-block;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    color: white;
+}
+
+.badge-rac.cnf {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+}
+
+.status-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-btn.online {
+    background: #4caf50;
+    color: white;
+}
+
+.status-btn.offline {
+    background: #9e9e9e;
+    color: white;
+}
+
+.upgrade-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.upgrade-badge.upgraded {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.upgrade-badge.pending {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #5a6c7d;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 6px;
+    border: 1px solid #e1e8ed;
+}
+
+.empty-state p {
+    font-size: 14px;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .filter-tabs {
+        flex-direction: column;
+    }
+
+    .filter-tab {
+        width: 100%;
+    }
+
+    .rac-table {
+        font-size: 10px;
+    }
+
+    .rac-table th,
+    .rac-table td {
+        padding: 6px;
+    }
+}

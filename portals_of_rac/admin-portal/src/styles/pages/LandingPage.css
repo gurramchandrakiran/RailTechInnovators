@@ -1,0 +1,1205 @@
+/* admin-portal/src/styles/pages/LandingPage.css
+   Palette & component patterns mirror HomePage.css exactly.
+   ─────────────────────────────────────────────────────────
+   Tokens (from HomePage):
+     bg card  : linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)
+     border   : #e1e8ed
+     shadow   : 0 2px 6px rgba(44,62,80,.08)
+     text-dark: #2c3e50
+     text-mid : #34495e  /  #5a6c7d
+     text-mute: #7f8c8d
+     blue-pri : #3498db → #2980b9
+     green-pri: #27ae60 → #229954
+     grey-btn : #95a5a6 → #7f8c8d
+   ───────────────────────────────────────────────────────── */
+
+/* ============================================================
+   PAGE WRAPPER  (matches .home-page)
+   ============================================================ */
+
+.landing-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    min-height: 100vh;
+}
+
+.landing-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ============================================================
+   HEADER  (dark banner — same two-tone dark as train-config-banner
+            but inverted to navy so it reads as "top-level")
+   ============================================================ */
+
+.landing-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    flex-direction: row !important;
+    gap: 8px;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    padding: clamp(8px, 0.8vw + 2px, 15px) clamp(10px, 1vw + 4px, 20px);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(44, 62, 80, 0.2);
+    border: 1px solid #1a252f;
+}
+
+.landing-header h1 {
+    color: white;
+    font-size: clamp(0.7rem, 0.4rem + 1vw, 1.2rem) !important;
+    font-weight: 600;
+    margin: 0;
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/* three-dot menu button inside dark header */
+.landing-header .menu-button {
+    color: white;
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background 0.2s;
+    line-height: 1;
+}
+
+.landing-header .menu-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ── user-menu dropdown (matches UserMenu.css pattern) ── */
+.user-menu {
+    position: relative;
+}
+
+.menu-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(44, 62, 80, 0.2);
+    min-width: 175px;
+    z-index: 200;
+    border: 1px solid #e1e8ed;
+    overflow: hidden;
+    animation: dropIn 0.15s ease;
+}
+
+@keyframes dropIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu-user-info {
+    padding: 12px 14px 8px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%);
+}
+
+.menu-user-info p {
+    margin: 2px 0;
+    font-size: 13px;
+    color: #2c3e50;
+}
+
+.user-role {
+    font-size: 11px !important;
+    color: #5a6c7d !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.menu-dropdown hr {
+    border: none;
+    border-top: 1px solid #e1e8ed;
+    margin: 0;
+}
+
+.menu-item {
+    width: 100%;
+    padding: 10px 14px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 13px;
+    color: #34495e;
+    transition: background 0.15s;
+    display: block;
+}
+
+.menu-item:hover {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%);
+}
+
+.menu-item.logout {
+    color: #e74c3c;
+}
+
+.menu-item.logout:hover {
+    background: linear-gradient(135deg, #fff5f5 0%, #fde8e8 100%);
+}
+
+/* ============================================================
+   SECTION TITLE  (matches .section-title in HomePage)
+   ============================================================ */
+
+.section-title {
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    color: #34495e;
+    font-weight: 600;
+}
+
+/* ============================================================
+   ACTIONS SECTION  (matches .action-cards-section / .journey-section)
+   ============================================================ */
+
+.actions-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+    border: 1px solid #e1e8ed;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* base action button — mirrors .btn-compact sizing + .btn-start-journey shape */
+.action-btn {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.action-btn:active {
+    transform: scale(0.97);
+}
+
+.btn-icon {
+    font-size: 16px;
+}
+
+/* Add Train — blue primary (matches .btn-compact.primary / .btn-start-journey) */
+.add-train-btn {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.add-train-btn:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #21618c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+/* Sign Up TTE — green (matches .btn-compact.primary green variant) */
+.signup-tte-btn {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
+}
+
+.signup-tte-btn:hover {
+    background: linear-gradient(135deg, #229954 0%, #1e8449 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.4);
+}
+
+/* Manual Config — grey (matches .btn-compact.secondary) */
+.stats-btn {
+    background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+    color: white;
+    box-shadow: 0 2px 6px rgba(149, 165, 166, 0.3);
+}
+
+.stats-btn:hover {
+    background: linear-gradient(135deg, #7f8c8d 0%, #5d6d7e 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(149, 165, 166, 0.4);
+}
+
+/* ============================================================
+   TRAINS SECTION WRAPPER  (matches .action-cards-section)
+   ============================================================ */
+
+.trains-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+    border: 1px solid #e1e8ed;
+}
+
+/* ── Trains section header: title + search bar side-by-side ── */
+.trains-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+/* override the bottom-margin on section-title when it sits inside the header */
+.trains-section-header .section-title {
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+/* ── Train Search ── */
+.train-search-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.train-search-field {
+    width: 260px;
+    padding: 8px 14px;
+    border: 2px solid #d5dbdb;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #2c3e50;
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.train-search-field:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.12);
+}
+
+.train-search-field::placeholder {
+    color: #aab7c4;
+    font-size: 12.5px;
+}
+
+.train-search-clear-btn {
+    padding: 7px 14px;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.train-search-clear-btn:hover {
+    background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+    box-shadow: 0 2px 6px rgba(231, 76, 60, 0.3);
+}
+
+/* Result count badge */
+.search-result-count {
+    display: inline-block;
+    margin-left: 12px;
+    padding: 3px 10px;
+    background: #d6eaf8;
+    color: #2980b9;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+/* No-results state */
+.search-no-results {
+    padding: 40px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%);
+    border-bottom: 1px solid #e1e8ed;
+}
+
+.search-no-results-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+    opacity: 0.5;
+}
+
+.search-no-results p {
+    font-size: 14px;
+    color: #5a6c7d;
+    margin: 0 0 14px 0;
+}
+
+.search-no-results strong {
+    color: #2c3e50;
+}
+
+.search-no-results-reset {
+    padding: 6px 16px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.search-no-results-reset:hover {
+    background: #2980b9;
+}
+
+/* ============================================================
+   TABLE HEADER ROW
+   ============================================================ */
+
+.trains-table-header {
+    display: grid;
+    grid-template-columns: 52px 2fr 1.3fr 1fr 0.8fr 84px;
+    gap: 0;
+    padding: 7px 10px 7px 10px;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    border-radius: 6px 6px 0 0;
+    border: 1px solid #1a252f;
+    border-bottom: none;
+}
+
+.trains-table-header span {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+/* align all header labels flush-left, matching their cell's left padding */
+.trains-table-header span:nth-child(3) {
+    padding-left: 2px;
+}
+
+.trains-table-header span:nth-child(4) {
+    padding-left: 8px;
+}
+
+.trains-table-header span:nth-child(5) {
+    padding-left: 8px;
+}
+
+.trains-table-header span:nth-child(6) {
+    padding-left: 8px;
+}
+
+/* ============================================================
+   TRAINS GRID  (list container)
+   ============================================================ */
+
+.trains-grid {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e1e8ed;
+    border-radius: 0 0 6px 6px;
+    overflow: hidden;
+}
+
+/* ============================================================
+   TRAIN CARD — compact row (inspired by .nav-card + .stat-box)
+   ============================================================ */
+
+.train-card {
+    display: grid;
+    grid-template-columns: 52px 2fr 1.3fr 1fr 0.8fr 84px;
+    align-items: center;
+    gap: 0;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-bottom: 1px solid #e1e8ed;
+    transition: all 0.3s ease;
+    position: relative;
+    min-height: 58px;
+    cursor: pointer;
+}
+
+.train-card:last-child {
+    border-bottom: none;
+}
+
+.train-card:nth-child(even) {
+    background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f4 100%);
+}
+
+/* mirrors .nav-card:hover */
+.train-card:hover {
+    background: linear-gradient(135deg, #ebf5fb 0%, #d6eaf8 100%) !important;
+    border-color: #3498db;
+}
+
+/* left-edge status stripe */
+.train-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+}
+
+.train-card.status-running-card::before {
+    background: linear-gradient(180deg, #27ae60, #229954);
+}
+
+.train-card.status-ready-card::before {
+    background: linear-gradient(180deg, #f39c12, #e67e22);
+}
+
+.train-card.status-complete-card::before {
+    background: linear-gradient(180deg, #3498db, #2980b9);
+}
+
+.train-card.status-not-init-card::before {
+    background: #bdc3c7;
+}
+
+/* ── Col 1 : icon + number ── */
+.train-col-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 6px 8px 12px;
+    gap: 2px;
+}
+
+.train-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.train-number {
+    font-size: 10px;
+    font-weight: 700;
+    color: #2c3e50;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+/* ── Col 2 : name ── */
+.train-col-name {
+    padding: 8px 10px 8px 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+    min-width: 0;
+}
+
+.train-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #2c3e50;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.train-name-sub {
+    font-size: 10px;
+    color: #7f8c8d;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+/* ── Col 3 : coaches ── */
+.train-col-coaches {
+    padding: 8px 6px 8px 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+.coach-total {
+    font-size: 12px;
+    font-weight: 600;
+    color: #34495e;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.coach-breakdown {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+/* coach class badges — matching timeline-station-code pill style */
+.coach-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.badge-sl {
+    background: #d6eaf8;
+    color: #21618c;
+}
+
+.badge-3ac {
+    background: #d4efdf;
+    color: #1e8449;
+}
+
+.badge-2ac {
+    background: #fdebd0;
+    color: #935116;
+}
+
+.badge-1ac {
+    background: #f9ebea;
+    color: #922b21;
+}
+
+/* ── Col 4 : status ── */
+.train-col-status {
+    padding: 8px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* status badges — same pattern as timeline-station-code */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.status-running {
+    background: #d4efdf;
+    color: #1e8449;
+}
+
+.status-ready {
+    background: #fdebd0;
+    color: #935116;
+}
+
+.status-not-init {
+    background: #ecf0f1;
+    color: #5a6c7d;
+}
+
+.status-complete {
+    background: #d6eaf8;
+    color: #21618c;
+}
+
+/* ── Col 5 : station ── */
+.train-col-station {
+    padding: 8px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+}
+
+.station-label {
+    font-size: 10px;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.station-value {
+    font-size: 13px;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.station-progress {
+    font-size: 10px;
+    color: #5a6c7d;
+    font-weight: 500;
+}
+
+/* ── Col 6 : action button ── */
+.train-col-action {
+    padding: 8px 10px 8px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* mirrors .open-train-btn from original, same as nav-card button palette */
+.open-train-btn {
+    padding: 7px 14px;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(52, 152, 219, 0.3);
+    white-space: nowrap;
+}
+
+.open-train-btn:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #21618c 100%);
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
+    transform: scale(1.04);
+}
+
+.open-train-btn:active {
+    transform: scale(0.97);
+}
+
+/* legacy — kept so any other component using .train-info still works */
+.train-info {
+    font-size: 12px;
+    color: #7f8c8d;
+    margin: 2px 0;
+}
+
+/* ============================================================
+   LOADING & EMPTY STATES
+   ============================================================ */
+
+.loading-spinner {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 14px;
+    color: #5a6c7d;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 30px;
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+/* ============================================================
+   MODAL  (matches .journey-section card feel)
+   ============================================================ */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(44, 62, 80, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+    padding: 16px;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 8px;
+    padding: 25px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(44, 62, 80, 0.3);
+    animation: modalSlideIn 0.25s ease;
+    border: 1px solid #e1e8ed;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-content h2 {
+    margin: 0 0 20px 0;
+    color: #2c3e50;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e1e8ed;
+}
+
+
+
+
+/* form fields — mirrors .input-pnr style */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #5a6c7d;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d5dbdb;
+    border-radius: 4px;
+    font-size: 13px;
+    background: white;
+    color: #34495e;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-cancel,
+.btn-submit {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-cancel {
+    background: linear-gradient(135deg, #ecf0f1 0%, #d5dbdb 100%);
+    color: #5a6c7d;
+}
+
+.btn-cancel:hover {
+    background: linear-gradient(135deg, #d5dbdb 0%, #bdc3c7 100%);
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    box-shadow: 0 2px 6px rgba(52, 152, 219, 0.3);
+}
+
+.btn-submit:hover:not(:disabled) {
+    background: linear-gradient(135deg, #2980b9 0%, #21618c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.btn-submit:disabled {
+    background: linear-gradient(135deg, #bdc3c7 0%, #95a5a6 100%);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* ============================================================
+   TTE SUCCESS DISPLAY
+   ============================================================ */
+
+.tte-success {
+    text-align: center;
+}
+
+.success-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.tte-success h3 {
+    color: #2c3e50;
+    margin: 0 0 15px 0;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.tte-details {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%);
+    border-radius: 6px;
+    border: 1px solid #e1e8ed;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.tte-details p {
+    margin: 6px 0;
+    color: #5a6c7d;
+    font-size: 13px;
+}
+
+.tte-details strong {
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+.note {
+    color: #e74c3c;
+    font-size: 12px;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.info-note {
+    background: linear-gradient(135deg, #ebf5fb 0%, #d6eaf8 100%);
+    border-left: 3px solid #3498db;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #21618c;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+    .trains-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .train-search-row {
+        width: 100%;
+    }
+
+    .train-search-field {
+        max-width: 100%;
+        flex: 1;
+    }
+
+    .trains-table-header {
+        display: none;
+    }
+
+    .train-card {
+        grid-template-columns: 52px 1fr auto;
+        grid-template-rows: auto auto;
+        min-height: unset;
+        padding: 10px 10px 10px 12px;
+        gap: 2px 8px;
+    }
+
+    .train-col-icon {
+        grid-row: 1 / 3;
+        padding: 0 6px 0 0;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .train-col-name {
+        grid-column: 2;
+        grid-row: 1;
+        padding: 0;
+    }
+
+    .train-col-coaches {
+        grid-column: 2;
+        grid-row: 2;
+        padding: 0;
+    }
+
+    .train-col-status {
+        grid-column: 3;
+        grid-row: 1;
+        padding: 0;
+        justify-content: flex-end;
+    }
+
+    .train-col-station {
+        display: none;
+    }
+
+    .train-col-action {
+        grid-column: 3;
+        grid-row: 2;
+        padding: 0;
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 768px) {
+    .landing-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .landing-header h1 {
+        font-size: 1.1rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .action-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-page {
+        padding: 10px;
+    }
+
+    .modal-content {
+        padding: 18px;
+    }
+}
+
+/* ============================================================
+   TRAIN OVERVIEW STATS ROW (below each train card)
+   ============================================================ */
+
+.train-overview-stats {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 8px 16px;
+    margin-top: 4px;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8eef3 100%);
+    border-top: 1px solid #e1e8ed;
+    border-radius: 0 0 10px 10px;
+    cursor: default;
+}
+
+.overview-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.78rem;
+    color: #34495e;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 3px 10px;
+    border-radius: 12px;
+    border: 1px solid #dce3ea;
+    white-space: nowrap;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.overview-stat:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.overview-detail {
+    color: #7f8c8d;
+    font-weight: 400;
+    font-size: 0.72rem;
+    margin-left: 2px;
+}
+
+/* Status-aware card styling — make stats row match */
+.train-card.card-running .train-overview-stats {
+    background: linear-gradient(135deg, #eafaf1 0%, #d5f5e3 100%);
+    border-top-color: #c8e6c9;
+}
+
+.train-card.card-completed .train-overview-stats {
+    background: linear-gradient(135deg, #eaf2fa 0%, #d4e6f1 100%);
+    border-top-color: #bbd3e8;
+}
+
+@media (max-width: 768px) {
+    .train-overview-stats {
+        gap: 6px;
+        padding: 6px 10px;
+    }
+
+    .overview-stat {
+        font-size: 0.7rem;
+        padding: 2px 7px;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE: Train cards — stacked card layout at narrow viewports
+   ============================================================ */
+@media (max-width: 900px) {
+
+    /* Hide the table header row on narrow screens */
+    .trains-table-header {
+        display: none;
+    }
+
+    /* Switch from 6-column grid to stacked card layout */
+    .train-card {
+        display: flex !important;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 12px;
+        min-height: auto;
+    }
+
+    /* Icon + number: inline at the start */
+    .train-col-icon {
+        flex-direction: row;
+        gap: 6px;
+        padding: 0;
+    }
+
+    /* Name: takes remaining space on first row */
+    .train-col-name {
+        flex: 1 1 0;
+        min-width: 0;
+        padding: 0;
+    }
+
+    /* Open button: right-aligned on first row */
+    .train-col-action {
+        padding: 0;
+        margin-left: auto;
+    }
+
+    .open-train-btn {
+        padding: 5px 12px !important;
+        font-size: 11px !important;
+        min-height: auto !important;
+        max-height: none !important;
+    }
+
+    /* Coaches, status, station: second row */
+    .train-col-coaches,
+    .train-col-status,
+    .train-col-station {
+        padding: 2px 0;
+    }
+
+    .train-col-coaches {
+        flex: 0 0 auto;
+    }
+
+    .train-col-status {
+        flex: 0 0 auto;
+    }
+
+    .train-col-station {
+        flex: 1 1 auto;
+        flex-direction: row;
+        gap: 4px;
+        align-items: center;
+    }
+
+    .station-label {
+        display: none;
+    }
+
+    /* Fluid action buttons */
+    .action-buttons {
+        gap: 8px;
+    }
+
+    .action-btn {
+        padding: clamp(6px, 1vw, 10px) clamp(12px, 2vw, 22px) !important;
+        font-size: clamp(11px, 1.2vw + 4px, 13px) !important;
+        min-height: auto !important;
+        max-height: none !important;
+    }
+
+    /* Fluid search bar */
+    .train-search-field {
+        width: clamp(140px, 30vw, 260px) !important;
+        font-size: clamp(11px, 1.2vw + 4px, 13px);
+    }
+
+    /* User menu in landing header — keep inline */
+    .landing-header .user-menu {
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Search takes full width */
+    .trains-section-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .train-search-row {
+        width: 100%;
+    }
+
+    .train-search-field {
+        width: 100% !important;
+    }
+}

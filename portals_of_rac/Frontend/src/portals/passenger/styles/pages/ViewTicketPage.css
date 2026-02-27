@@ -1,0 +1,517 @@
+/* ViewTicketPage.css - E-Boarding Pass & Boarding Station Change */
+
+.view-ticket-page {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.page-header {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    padding: 20px 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(44, 62, 80, 0.3);
+}
+
+.page-header h2 {
+    margin: 0;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Change Boarding Station Section */
+.change-station-section {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.change-station-btn {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.change-station-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.change-station-btn:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+}
+
+.already-changed-notice {
+    background: #fef5e7;
+    border: 1px solid #f39c12;
+    color: #8a6d3b;
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Modal/Dialog Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    padding: 20px 25px;
+    color: white;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #5a6c7d;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.station-option {
+    padding: 10px 15px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.station-option:hover {
+    background: #e8f4fd;
+    border-color: #3498db;
+}
+
+.station-option.selected {
+    background: #e8f4fd;
+    border-color: #3498db;
+}
+
+.station-option-name {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.station-option-time {
+    font-size: 12px;
+    color: #7f8c8d;
+    margin-top: 4px;
+}
+
+.modal-footer {
+    padding: 15px 25px;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn-cancel {
+    padding: 10px 20px;
+    background: #e0e0e0;
+    color: #5a6c7d;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-cancel:hover {
+    background: #bdc3c7;
+}
+
+.btn-confirm {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-confirm:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.4);
+}
+
+.btn-confirm:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+}
+
+/* Confirmation Dialog */
+.confirm-dialog {
+    text-align: center;
+    padding: 20px;
+}
+
+.confirm-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.confirm-message {
+    font-size: 16px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.confirm-details {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.confirm-details .from-to {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.confirm-details .arrow {
+    color: #27ae60;
+}
+
+/* Success/Error States */
+.success-message {
+    background: #d4edda;
+    border: 1px solid #28a745;
+    color: #155724;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    background: #f8d7da;
+    border: 1px solid #dc3545;
+    color: #721c24;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Loading State */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+/* Current Station Display */
+.current-station-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.current-station-info .label {
+    font-size: 12px;
+    color: #7f8c8d;
+    text-transform: uppercase;
+}
+
+.current-station-info .value {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Step Indicator */
+.step-indicator {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+}
+
+.step-number {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    color: #7f8c8d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.step-number.active {
+    background: #3498db;
+    color: white;
+}
+
+.step-line {
+    width: 50px;
+    height: 2px;
+    background: #e0e0e0;
+}
+
+.step-line.active {
+    background: #3498db;
+}
+
+@media (max-width: 600px) {
+    .modal-content {
+        width: 95%;
+        margin: 10px;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+    }
+
+    .btn-cancel,
+    .btn-confirm {
+        width: 100%;
+    }
+}
+/* Cancelled Ticket Notice */
+.cancelled-notice {
+    background: #ffeaea;
+    border: 2px solid #e74c3c;
+    color: #c0392b;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Action Buttons Row */
+.action-buttons-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.action-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.action-card h4 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+    font-size: 16px;
+}
+
+.action-card .info-text {
+    color: #7f8c8d;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.action-card .notice-text {
+    color: #e67e22;
+    font-size: 13px;
+    margin: 0;
+}
+
+/* Cancel Ticket Button */
+.cancel-ticket-btn {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cancel-ticket-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+}
+
+.cancel-ticket-btn:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+}
+
+/* ENHANCED MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    .view-ticket-page {
+        padding: 15px;
+    }
+
+    .ticket-card {
+        padding: 18px;
+        margin: 10px;
+    }
+
+    .ticket-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .qr-section {
+        padding: 20px;
+    }
+
+    .qr-code-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+
+    .ticket-details-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .detail-item {
+        padding: 10px 0;
+    }
+
+    .detail-label {
+        font-size: 12px;
+    }
+
+    .detail-value {
+        font-size: 16px;
+    }
+
+    .journey-route {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .action-buttons-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .btn-download,
+    .btn-share {
+        min-height: 50px;
+        font-size: 16px;
+    }
+
+    .berth-display {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    .qr-code-wrapper {
+        width: 160px;
+        height: 160px;
+    }
+
+    .berth-display {
+        font-size: 28px;
+    }
+}

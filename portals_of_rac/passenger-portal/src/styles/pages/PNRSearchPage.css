@@ -1,0 +1,650 @@
+/* PNRSearchPage.css - Clean, Minimal Design (TTE Portal Style) */
+
+/* ========================================
+   Page Layout
+   ======================================== */
+.pnr-search-page {
+    padding: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+    background: #f5f6fa;
+    min-height: calc(100vh - 120px);
+}
+
+/* ========================================
+   Page Header
+   ======================================== */
+.page-header {
+    background: #2c3e50;
+    padding: 16px 24px;
+    border-radius: 6px;
+    margin-bottom: 24px;
+}
+
+.page-header h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* ========================================
+   Search Container (TTE Portal Style)
+   ======================================== */
+.search-container {
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid #e0e0e0;
+}
+
+.search-form {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.search-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid #e1e8ed;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease;
+    background: #2c3e50;
+    color: #ffffff;
+}
+
+.search-input:focus {
+    border-color: #3498db;
+}
+
+.search-input::placeholder {
+    color: #95a5a6;
+}
+
+.search-btn {
+    padding: 12px 24px;
+    background: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+.search-btn:hover:not(:disabled) {
+    background: #2980b9;
+}
+
+.search-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ========================================
+   Passenger Details Card
+   ======================================== */
+.passenger-details-card {
+    background: #ffffff;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
+
+.card-header {
+    background: #2c3e50;
+    padding: 16px 24px;
+    color: #ffffff;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-body {
+    padding: 24px;
+}
+
+/* ========================================
+   Detail Grid
+   ======================================== */
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    border-bottom: 1px solid #ecf0f1;
+    padding-bottom: 20px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-label {
+    font-size: 11px;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.detail-value {
+    font-size: 15px;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+/* ========================================
+   Status Badges
+   ======================================== */
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-badge.cnf {
+    background: #e8f5e9;
+    color: #27ae60;
+}
+
+.status-badge.rac {
+    background: #fff8e1;
+    color: #f39c12;
+}
+
+.status-badge.wl {
+    background: #ffebee;
+    color: #e74c3c;
+}
+
+/* ========================================
+   Journey Section - HORIZONTAL LAYOUT
+   ======================================== */
+.journey-section {
+    margin-top: 24px;
+    padding-top: 24px;
+}
+
+.journey-path {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    padding: 32px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border: 1px solid #ecf0f1;
+    width: 100%;
+}
+
+.station-info {
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.station-code {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 4px;
+    white-space: nowrap;
+}
+
+.station-name {
+    font-size: 12px;
+    color: #7f8c8d;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.journey-arrow {
+    font-size: 24px;
+    color: #bdc3c7;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   Error and Loading States
+   ======================================== */
+.error-message {
+    background: #fff5f5;
+    border: 1px solid #e74c3c;
+    color: #c0392b;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 24px;
+    font-size: 14px;
+}
+
+.loading-container {
+    text-align: center;
+    padding: 48px;
+    color: #7f8c8d;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 64px 24px;
+    color: #95a5a6;
+    background: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+}
+
+.empty-state .icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.empty-state h3 {
+    margin: 0 0 8px 0;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+.empty-state p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+@media (max-width: 768px) {
+    .pnr-search-page {
+        padding: 16px;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+
+    .search-input,
+    .search-btn {
+        width: 100%;
+    }
+
+    .detail-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .journey-path {
+        gap: 30px;
+        padding: 24px;
+    }
+
+    .station-code {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================
+   Ticket Actions Card
+   ======================================== */
+.ticket-actions-card {
+    background: #ffffff;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    margin-top: 24px;
+}
+
+.actions-info {
+    color: #7f8c8d;
+    font-size: 14px;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.action-item {
+    background: #f8f9fa;
+    border: 1px solid #ecf0f1;
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+}
+
+.action-item h4 {
+    margin: 0 0 8px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.action-item p {
+    margin: 0 0 16px 0;
+    font-size: 13px;
+    color: #7f8c8d;
+}
+
+.action-btn {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.action-btn.change-btn {
+    background: #3498db;
+    color: #ffffff;
+}
+
+.action-btn.change-btn:hover {
+    background: #2980b9;
+}
+
+.action-btn.cancel-btn {
+    background: #e74c3c;
+    color: #ffffff;
+}
+
+.action-btn.cancel-btn:hover {
+    background: #c0392b;
+}
+
+/* ========================================
+   Modal Styles
+   ======================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-content {
+    background: #ffffff;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+}
+
+.modal-header.change-header {
+    background: #2c3e50;
+}
+
+.modal-header.cancel-header {
+    background: #e74c3c;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    opacity: 0.8;
+}
+
+.modal-close:hover {
+    opacity: 1;
+}
+
+.modal-body {
+    padding: 24px;
+}
+
+.modal-footer {
+    padding: 16px 24px;
+    background: #f8f9fa;
+    border-top: 1px solid #ecf0f1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.modal-info {
+    color: #7f8c8d;
+    font-size: 14px;
+    margin: 0 0 20px 0;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e1e8ed;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #3498db;
+}
+
+/* Alert Boxes */
+.info-alert {
+    background: #e3f2fd;
+    border: 1px solid #2196f3;
+    color: #1565c0;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.warning-alert {
+    background: #fff8e1;
+    border: 1px solid #ff9800;
+    color: #e65100;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.error-alert {
+    background: #ffebee;
+    border: 1px solid #f44336;
+    color: #c62828;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* Station Selection List */
+.station-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.station-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid #e1e8ed;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #ffffff;
+}
+
+.station-option:hover {
+    background: #f5f5f5;
+}
+
+.station-option.selected {
+    background: #e3f2fd;
+    border-color: #2196f3;
+}
+
+.station-option input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #3498db;
+}
+
+.station-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.station-details strong {
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+.station-details span {
+    color: #7f8c8d;
+    font-size: 12px;
+}
+
+/* Modal Buttons */
+.btn-primary {
+    padding: 10px 20px;
+    background: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #2980b9;
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    padding: 10px 20px;
+    background: #ecf0f1;
+    color: #7f8c8d;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: #bdc3c7;
+    color: #2c3e50;
+}
+
+.btn-secondary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-danger {
+    padding: 10px 20px;
+    background: #e74c3c;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-danger:hover:not(:disabled) {
+    background: #c0392b;
+}
+
+.btn-danger:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Responsive Modal */
+@media (max-width: 480px) {
+    .modal-content {
+        margin: 10px;
+        max-width: calc(100% - 20px);
+    }
+
+    .actions-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,182 @@
+/* passenger-portal/src/components/BoardingPass.css */
+/* Minimal, clean design with white backgrounds and professional colors */
+
+.boarding-pass-card {
+    max-width: 900px;
+    margin: 0 auto 24px;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+}
+
+.boarding-pass-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: #2c3e50;
+    color: #ffffff;
+    border-radius: 8px 8px 0 0;
+}
+
+.boarding-pass-header h6 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.qr-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    margin: 16px;
+    border: 1px solid #ecf0f1;
+}
+
+.qr-section p {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #7f8c8d;
+}
+
+.passenger-details {
+    padding: 0 16px 16px;
+}
+
+.action-buttons {
+    padding: 0 16px 16px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.action-buttons button {
+    flex: 1;
+    min-width: 140px;
+}
+
+.instructions {
+    padding: 12px 16px;
+    background: #f0f4f8;
+    border-top: 1px solid #e0e0e0;
+    border-radius: 0 0 8px 8px;
+}
+
+.instructions p {
+    margin: 0;
+    font-size: 13px;
+    color: #5a6c7d;
+}
+
+/* Print Styles */
+@media print {
+    .action-buttons {
+        display: none !important;
+    }
+
+    .boarding-pass-card {
+        box-shadow: none !important;
+        border: 2px solid #333;
+        page-break-inside: avoid;
+    }
+
+    .qr-section {
+        background: white !important;
+        border: 1px solid #333;
+    }
+
+    .MuiAppBar-root,
+    .MuiButton-root,
+    footer {
+        display: none !important;
+    }
+}
+
+/* ENHANCED MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .boarding-pass-card {
+        margin: 0 10px 16px;
+        padding: 18px;
+        border-radius: 8px !important;
+    }
+
+    .boarding-pass-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .train-info {
+        font-size: 16px;
+    }
+
+    .passenger-details {
+        padding: 15px;
+    }
+
+    .detail-row {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .detail-label {
+        font-size: 12px;
+    }
+
+    .detail-value {
+        font-size: 16px;
+    }
+
+    .berth-display {
+        font-size: 32px;
+        padding: 20px;
+    }
+
+    .qr-section {
+        padding: 20px;
+    }
+
+    .qr-section svg {
+        width: 180px !important;
+        height: 180px !important;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .action-buttons button {
+        width: 100%;
+        min-height: 50px;
+        font-size: 16px;
+    }
+
+    .journey-route {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .boarding-pass-card {
+        margin: 0 8px 14px;
+        padding: 15px;
+    }
+
+    .berth-display {
+        font-size: 28px;
+    }
+
+    .qr-section svg {
+        width: 160px !important;
+        height: 160px !important;
+    }
+}

@@ -1,0 +1,14 @@
+# Enforce LF line endings for text files
+*.js text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.css text eol=lf
+*.json text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+.gitignore text eol=lf
+
+# Treat all node_modules as binary
+**/node_modules/** binary

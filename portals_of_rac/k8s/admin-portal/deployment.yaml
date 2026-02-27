@@ -1,0 +1,143 @@
+# ============================================
+# RAC Admin Portal - Kubernetes Deployment
+# Serves all 3 portals via Nginx
+# ============================================
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rac-admin-portal
+  namespace: rac-system
+  labels:
+    app: rac-admin-portal
+    tier: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rac-admin-portal
+  template:
+    metadata:
+      labels:
+        app: rac-admin-portal
+        tier: frontend
+    spec:
+      containers:
+        - name: admin-portal
+          image: ${DOCKER_REGISTRY}/rac-admin:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              name: http
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 3
+            periodSeconds: 10
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rac-tte-portal
+  namespace: rac-system
+  labels:
+    app: rac-tte-portal
+    tier: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rac-tte-portal
+  template:
+    metadata:
+      labels:
+        app: rac-tte-portal
+        tier: frontend
+    spec:
+      containers:
+        - name: tte-portal
+          image: ${DOCKER_REGISTRY}/rac-tte:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              name: http
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 3
+            periodSeconds: 10
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rac-passenger-portal
+  namespace: rac-system
+  labels:
+    app: rac-passenger-portal
+    tier: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rac-passenger-portal
+  template:
+    metadata:
+      labels:
+        app: rac-passenger-portal
+        tier: frontend
+    spec:
+      containers:
+        - name: passenger-portal
+          image: ${DOCKER_REGISTRY}/rac-passenger:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              name: http
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 3
+            periodSeconds: 10
